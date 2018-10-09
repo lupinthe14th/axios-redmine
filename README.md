@@ -1,26 +1,26 @@
-node-redmine
+axios-redmine
 ============
 
-[![Build Status](https://travis-ci.org/zanran/node-redmine.svg?branch=master)](https://travis-ci.org/zanran/node-redmine)
-[![npm version](https://img.shields.io/npm/v/node-redmine.svg?style=flat)](https://www.npmjs.com/package/node-redmine)
+[![Build Status](https://travis-ci.org/lupinthe14th/axios-redmine.svg?branch=master)](https://travis-ci.org/lupinthe14th/axios-redmine)
+[![npm version](https://img.shields.io/npm/v/axios-redmine.svg?style=flat)](https://www.npmjs.com/package/axios-redmine)
 
-*[node-redmine](https://github.com/zanran/node-redmine) is a nodejs library that supports 100% the [Redmine's REST API](http://www.redmine.org/projects/redmine/wiki/Rest_api)'s features.*
+*[axios-redmine](https://github.com/lupinthe14th/axios-redmine) is a nodejs library that supports 100% the [Redmine's REST API](http://www.redmine.org/projects/redmine/wiki/Rest_api)'s features.*
 
 ## Installation
 
-To install node-redmine, simply:
+To install axios-redmine, simply:
 
 ```shell
-npm install node-redmine
+npm install axios-redmine
 ```
 
 ## Usage
 
 ```js
-var Redmine = require('node-redmine');
+var Redmine = require('axios-redmine');
 
 // protocol required in Hostname, supports both HTTP and HTTPS
-var hostname = process.env.REDMINE_HOST || 'http://redmine.zanran.me';
+var hostname = process.env.REDMINE_HOST || 'http://redmine.lupinthe14th.me';
 var config = {
   apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781'
 };
@@ -75,8 +75,8 @@ redmine.issues({limit: 2}, function(err, data) {
 ## Links
 
 * Redmine wiki page: http://www.redmine.org/projects/redmine/wiki/Rest_api
-* NPM package: https://www.npmjs.com/package/node-redmine
+* NPM package: https://www.npmjs.com/package/axios-redmine
 
 
 ## Notice
-+ node-redmine only supports using the [JSON](http://en.wikipedia.org/wiki/JSON) format.
++ axios-redmine only supports using the [JSON](http://en.wikipedia.org/wiki/JSON) format.
