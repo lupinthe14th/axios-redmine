@@ -24,17 +24,19 @@
   "author": "hideosuzuki@ordinarius-fectum.net",
   "license": "GPL-3.0",
   "dependencies": {
-    "debug": "^2.2.0",
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "debug": "^2.2.0"
   },
   "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "grunt": "^1.0.1",
-    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-eslint": "^21.0.0",
     "grunt-mocha-cli": "^2.1.0",
     "grunt-mocha-istanbul": "^4.0.2",
     "grunt-mocha-test": "^0.12.7",
     "istanbul": "^0.4.3",
-    "jshint-stylish": "^2.2.0",
     "load-grunt-configs": "^1.0.0",
     "load-grunt-tasks": "^3.5.0",
     "mocha": "^2.4.5",
