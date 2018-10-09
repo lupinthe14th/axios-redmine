@@ -32,9 +32,8 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig(configs);
 
-	// load jshint
 	grunt.registerTask('lint', [
-		'jshint'
+		'eslint'
 	]);
 
   grunt.registerTask('test', [
@@ -47,7 +46,7 @@ module.exports = function(grunt) {
 
 	// default option to connect server
 	grunt.registerTask('serve', [
-		'jshint',
+		'eslint',
     'mochacli',
     'mocha_istanbul'
 	]);
