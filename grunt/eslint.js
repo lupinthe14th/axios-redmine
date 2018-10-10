@@ -1,3 +1,3 @@
 module.exports = {
-  target: ['lib/**/*.js']
+  target: ['lib/**/*.js', 'test/**/*.js']
 }

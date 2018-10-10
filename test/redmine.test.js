@@ -1,105 +1,122 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-new */
+/* eslint-env mocha */
 /*
  * redmine.test.js - test request for redmine
  * Author: wayne <wayne@zanran.me>
  */
 
-var assert = require('assert');
-var Redmine = require('../lib/redmine');
+const assert = require('assert')
+const Redmine = require('../lib/redmine')
 
+/// ////////////////////////////////////////////////////////////
+var hostname = process.env.REDMINE_HOST || 'localhost'
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'localhost';
-
-describe('Redmine constructor', function() {
-  it('should throw host not specified error when no host or config given', function(done) {
+describe('Redmine constructor', function () {
+  it('should throw host not specified error when no host or config given', function (done) {
     try {
-      new Redmine();
+      new Redmine()
     } catch (e) {
-      assert.equal(e, 'Error: host not specified!');
+      assert.strictEqual(e.toString(), 'Error: host not specified!')
     }
-    done();
-  });
+    done()
+  })
 
-  it('should throw invalid hostname error when host is invalid', function(done) {
+  it('should throw invalid hostname error when host is invalid', function (done) {
     try {
-      new Redmine(1);
+      new Redmine(1)
     } catch (e) {
-      assert.equal(e, 'Error: host should be a string or url object!');
+      assert.strictEqual(
+        e.toString(),
+        'Error: host should be a string or url object!'
+      )
     }
-    done();
-  });
+    done()
+  })
 
-  it('should throw authentication missing error when no config given', function(done) {
+  it('should throw authentication missing error when no config given', function (done) {
     try {
-      new Redmine('localhost');
+      new Redmine('localhost')
     } catch (e) {
-      assert.equal(e, 'Error: You should provide an API key or username & password !');
+      assert.strictEqual(
+        e.toString(),
+        'Error: You should provide an API key or username & password !'
+      )
     }
-    done();
-  });
+    done()
+  })
 
-  it('should throw authentication missing error when API key and credentials missing', function(done) {
+  it('should throw authentication missing error when API key and credentials missing', function (done) {
     try {
-      new Redmine('localhost', {});
+      new Redmine('localhost', {})
     } catch (e) {
-      assert.equal(e, 'Error: You should provide an API key or username & password !');
+      assert.strictEqual(
+        e.toString(),
+        'Error: You should provide an API key or username & password !'
+      )
     }
-    done();
-  });
+    done()
+  })
 
-  it('should throw authentication missing error when password missing', function(done) {
-    var config = {
+  it('should throw authentication missing error when password missing', function (done) {
+    const config = {
       username: 'dummy-username'
-    };
-    try {
-      new Redmine('localhost', {});
-    } catch (e) {
-      assert.equal(e, 'Error: You should provide an API key or username & password !');
     }
-    done();
-  });
+    try {
+      new Redmine('localhost', {})
+    } catch (e) {
+      assert.strictEqual(
+        e.toString(),
+        'Error: You should provide an API key or username & password !'
+      )
+    }
+    done()
+  })
 
-  it('should throw authentication missing error when username missing', function(done) {
-    var config = {
+  it('should throw authentication missing error when username missing', function (done) {
+    const config = {
       password: 'dummy-password'
-    };
-    try {
-      new Redmine('localhost', {});
-    } catch (e) {
-      assert.equal(e, 'Error: You should provide an API key or username & password !');
     }
-    done();
-  });
+    try {
+      new Redmine('localhost', {})
+    } catch (e) {
+      assert.strictEqual(
+        e.toString(),
+        'Error: You should provide an API key or username & password !'
+      )
+    }
+    done()
+  })
 
-  it('should not throw errors when host and api key given', function(done) {
-    var config = {
+  it('should not throw errors when host and api key given', function (done) {
+    const config = {
       apiKey: process.env.REDMINE_APIKEY || 'my-redmine-api-key'
-    };
-    new Redmine(hostname, config);
-    done();
-  });
+    }
+    new Redmine(hostname, config)
+    done()
+  })
 
-  it('should not throw errors when host and credentials given', function(done) {
-    var config = {
+  it('should not throw errors when host and credentials given', function (done) {
+    const config = {
       username: 'dummy-username',
       password: 'dummy-password'
-    };
-    new Redmine(hostname, config);
-    done();
-  });
+    }
+    new Redmine(hostname, config)
+    done()
+  })
 
-  it('test-valid-options-attributes', function(done) {
-    var config = {
-      apiKey:   'dummy-api-key',
+  it('test-valid-options-attributes', function (done) {
+    const config = {
+      apiKey: 'dummy-api-key',
       username: 'dummy-username',
       password: 'dummy-password'
-    };
-    var redmine = new Redmine(hostname, config);
+    }
+    const redmine = new Redmine(hostname, config)
 
-    assert.equal(redmine.apiKey,   'dummy-api-key');
-    assert.equal(redmine.username, 'dummy-username');
-    assert.equal(redmine.password, 'dummy-password');
+    assert.strictEqual(redmine.apiKey, 'dummy-api-key')
+    assert.strictEqual(redmine.username, 'dummy-username')
+    assert.strictEqual(redmine.password, 'dummy-password')
 
-    done();
-  });
-});
+    done()
+  })
+})
