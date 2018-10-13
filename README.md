@@ -25,7 +25,7 @@ const hostname = process.env.REDMINE_HOST || 'https://docker.for.mac.host.intern
 const config = {
   apiKey:
     process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
-  rejectUnauthorized: process.env.REGECT_UNAUTHORIZED
+  rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
 }
 
 const redmine = new Redmine(hostname, config)
