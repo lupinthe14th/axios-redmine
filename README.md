@@ -17,35 +17,40 @@ npm install axios-redmine
 ## Usage
 
 ```js
-var Redmine = require('axios-redmine');
+'use strict()'
+const Redmine = require('../lib/redmine')
 
 // protocol required in Hostname, supports both HTTP and HTTPS
-var hostname = process.env.REDMINE_HOST || 'http://redmine.lupinthe14th.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781'
-};
+const hostname = process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REGECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
 /**
  * Dump issue
  */
-var dump_issue = function(issue) {
-  console.log('Dumping issue:');
-  for (var item in issue) {
-    console.log('  ' + item + ': ' + JSON.stringify(issue[item]));
+const dumpIssue = function (issue) {
+  console.log('Dumping issue:')
+  for (const item in issue) {
+    console.log('  ' + item + ': ' + JSON.stringify(issue[item]))
   }
-};
+}
 
-redmine.issues({limit: 2}, function(err, data) {
-  if (err) throw err;
-
-  for (var i in data.issues) {
-    dump_issue(data.issues[i]);
-  }
-
-  console.log('total_count: ' + data.total_count);
-});
+redmine
+  .issues({ limit: 2 })
+  .then(response => {
+    for (const i in response.data.issues) {
+      dumpIssue(response.data.issues[i])
+    }
+    console.log('total_count: ', response.data.total_count)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 ```
 
 ## Supported features for Redmine REST API
