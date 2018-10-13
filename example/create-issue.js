@@ -1,36 +1,41 @@
 /*
  * get-redmine-issue - test request for issues
- * Author: wayne <wayne@zanran.me>
+ * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
-'use strict()';
+'use strict()'
 
-var Redmine = require('../lib/redmine');
+const Redmine = require('../lib/redmine')
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'redmine.zanran.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781',
-  format: 'json'
-};
+/// ////////////////////////////////////////////////////////////
+const hostname =
+  process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REGECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
 /*
  * create issue
  */
-var issue = {
-  "issue": {
-    "project_id": 1,
-    "subject": 'Redmine REST API by Node.js',
-    "assigned_to_id": 5,
-    "notes": "automative update redmine notes by node js",
-    "priority_id": 4
+const issue = {
+  issue: {
+    project_id: 1,
+    subject: 'Redmine REST API by Node.js',
+    assigned_to_id: 5,
+    notes: 'automative update redmine notes by node js',
+    priority_id: 4
   }
-};
+}
 
-redmine.create_issue(issue, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
+redmine
+  .create_issue(issue)
+  .then(response => {
+    console.log(response)
+  })
+  .catch(err => {
+    console.log(err)
+  })
