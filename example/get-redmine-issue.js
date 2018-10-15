@@ -1,71 +1,82 @@
 /*
  * get-redmine-issue - test request for issues
- * Author: wayne <wayne@zanran.me>
+ * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
-'use strict()';
+'use strict()'
 
-var Redmine = require('../lib/redmine');
+const Redmine = require('../lib/redmine')
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'redmine.zanran.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781',
-  format: 'json'
-};
+/// ////////////////////////////////////////////////////////////
+const hostname =
+  process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
 /**
  * Dump issue
  */
-var dump_issue = function(issue) {
-  console.log('Dumping issue:');
+const dumpIssue = function (issue) {
+  console.log('Dumping issue:')
   for (var item in issue) {
-    console.log('  ' + item + ': ' + JSON.stringify(issue[item]));
+    console.log('  ' + item + ': ' + JSON.stringify(issue[item]))
   }
-};
+}
 
-redmine.issues({limit: 2}, function(err, data) {
-  if (err) throw err;
-
-  for (var i in data.issues) {
-    dump_issue(data.issues[i]);
-  }
-
-  console.log('total_count: ' + data.total_count);
-});
+redmine
+  .issues({ limit: 2 })
+  .then(response => {
+    for (const i in response.data.issues) {
+      dumpIssue(response.data.issues[i])
+    }
+    console.log('total_count: ' + response.data.total_count)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 
 // get issue by id
-var params = {include: 'attachments,journals,watchers'};
-redmine.get_issue_by_id(2, params, function(err, data) {
-  if (err) throw err;
+const params = { include: 'attachments,journals,watchers' }
+redmine
+  .get_issue_by_id(2, params)
+  .then(response => {
+    dumpIssue(response.data.issue)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 
-  dump_issue(data.issue);
-});
-
-
-redmine.delete_issue(1, function(err, data) {
-  if (err) {
-    console.log(err);
-    return ;
-  } else {
-    console.log('Delete issue #1: ' + JSON.stringify(data));
-  }
-});
-
+redmine
+  .delete_issue(1)
+  .then(response => {
+    console.log('Delete issue #1: ' + JSON.stringify(response.data))
+  })
+  .catch(err => {
+    console.log(err)
+  })
 
 // add watchers
-redmine.add_watcher(2, {user_id: 5}, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
+redmine
+  .add_watcher(2, { user_id: 5 })
+  .then(response => {
+    console.log(response.data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 /*
 // remove watchers
-redmine.remove_watcher(2, 5, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
+redmine
+  .remove_watcher(2, 5)
+  .then(response => {
+    console.log(response.data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 */
