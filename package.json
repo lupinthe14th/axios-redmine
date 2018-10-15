@@ -1,6 +1,6 @@
 {
   "name": "axios-redmine",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "axios-redmine is a nodejs library which supports 100% features of Redmine's REST API.",
   "main": "lib/redmine.js",
   "directories": {
@@ -17,10 +17,7 @@
     "axios",
     "REST API"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lupinthe14th/axios-redmine.git"
-  },
+  "repository": "https://github.com/lupinthe14th/axios-redmine.git",
   "author": "hideosuzuki@ordinarius-fectum.net",
   "license": "GPL-3.0",
   "dependencies": {
@@ -44,5 +41,6 @@
     "load-grunt-tasks": "^3.5.0",
     "mocha": "^2.4.5",
     "time-grunt": "^1.3.0"
-  }
+  },
+  "private": false
 }
