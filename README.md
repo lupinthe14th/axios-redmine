@@ -3,6 +3,7 @@ axios-redmine
 
 [![Build Status](https://travis-ci.org/lupinthe14th/axios-redmine.svg?branch=master)](https://travis-ci.org/lupinthe14th/axios-redmine)
 [![npm version](https://img.shields.io/npm/v/axios-redmine.svg?style=flat)](https://www.npmjs.com/package/axios-redmine)
+[![Coverage Status](https://coveralls.io/repos/github/lupinthe14th/axios-redmine/badge.svg?branch=master)](https://coveralls.io/github/lupinthe14th/axios-redmine?branch=master)
 
 *[axios-redmine](https://github.com/lupinthe14th/axios-redmine) is a nodejs library that supports 100% the [Redmine's REST API](http://www.redmine.org/projects/redmine/wiki/Rest_api)'s features.*
 
