@@ -1,6 +1,6 @@
 {
   "name": "axios-redmine",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "axios-redmine is a nodejs library which supports 100% features of Redmine's REST API.",
   "main": "lib/redmine.js",
   "directories": {
@@ -28,7 +28,7 @@
     "debug": "^2.2.0"
   },
   "devDependencies": {
-    "eslint": ">=5.0.0",
+    "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": ">=2.13.0",
     "eslint-plugin-node": ">=7.0.0",
