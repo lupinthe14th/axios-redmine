@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-module.exports = function mocha_istanbul(grunt) {
+module.exports = function mochaIstanbul (grunt) {
   // Load task
-  grunt.loadNpmTasks('grunt-mocha-istanbul');
+  grunt.loadNpmTasks('grunt-mocha-istanbul')
 
-  grunt.event.on('coverage', function(lcov, done) {
-    //console.log(lcov);
-    done();
-  });
+  grunt.event.on('coverage', function (lcov, done) {
+    // console.log(lcov);
+    done()
+  })
 
   // Options
   return {
@@ -15,10 +15,10 @@ module.exports = function mocha_istanbul(grunt) {
       src: 'test', // a folder works nicely
       options: {
         coverage: true,
-        reportFormats: ['lcov','lcovonly'],
+        reportFormats: ['lcov', 'lcovonly'],
         root: '.',
         recursive: true
       }
     }
-  };
-};
+  }
+}

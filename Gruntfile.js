@@ -1,58 +1,48 @@
-'use strict()';
+'use strict()'
 
-var config= {
-	port: 3000
-};
+var config = {
+  port: 3000
+}
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+  // Load grunt tasks automatically
+  require('load-grunt-tasks')(grunt)
 
-	// Load grunt tasks automatically
-	require('load-grunt-tasks')(grunt);
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt)
 
-	// Time how long tasks take. Can help when optimizing build times
-	require('time-grunt')(grunt);
+  var options = {
+    config: {
+      src: './grunt/*.js'
+    },
+    pkg: grunt.file.readJSON('package.json'),
+    nodemon: {
+      serve: {
+        script: 'index.js',
+        options: {
+          ignore: ['node_modules/**']
+        }
+      }
+    }
+  }
 
-	var options = {
-		config: {
-			src: './grunt/*.js'
-		},
-		pkg: grunt.file.readJSON('package.json'),
-		nodemon: {
-			serve: {
-				script: 'index.js',
-				options: {
-					ignore: ['node_modules/**']
-				}
-			}
-		}
-	};
+  var configs = require('load-grunt-configs')(grunt, options)
 
-	var configs = require('load-grunt-configs')(grunt, options);
+  // Project configuration.
+  grunt.initConfig(configs)
 
-	// Project configuration.
-	grunt.initConfig(configs);
+  grunt.registerTask('lint', ['eslint'])
 
-	grunt.registerTask('lint', [
-		'eslint'
-	]);
+  grunt.registerTask('test', ['mochacli'])
 
-  grunt.registerTask('test', [
-    'mochacli'
-  ]);
+  grunt.registerTask('coverage', ['mocha_istanbul:coveralls'])
 
-  grunt.registerTask('coverage', [
-    'mocha_istanbul'
-  ]);
-
-	// default option to connect server
-	grunt.registerTask('serve', [
-		'eslint',
-    'mochacli',
-    'mocha_istanbul'
-	]);
-
-	grunt.registerTask('server', function () {
-		grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-		grunt.task.run(['serve:' + target]);
-	});
-};
+  // default option to connect server
+  grunt.registerTask('serve', ['eslint', 'mochacli', 'mocha_istanbul'])
+  grunt.registerTask('server', function () {
+    grunt.log.warn(
+      'The `server` task has been deprecated. Use `grunt serve` to start a server.'
+    )
+    grunt.task.run(['serve:' + target])
+  })
+}
