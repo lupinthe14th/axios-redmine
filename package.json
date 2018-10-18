@@ -21,10 +21,10 @@
   "author": "hideosuzuki@ordinarius-fectum.net",
   "license": "GPL-3.0",
   "dependencies": {
-    "axios": "^0.18.0",
-    "debug": "^2.2.0"
+    "axios": "^0.18.0"
   },
   "devDependencies": {
+    "debug": "^4.1.0",
     "eslint": "^5.7.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": ">=2.13.0",
