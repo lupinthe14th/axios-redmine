@@ -1,81 +1,82 @@
 /*
- * get-redmine-issue - test request for issues
- * Author: wayne <wayne@zanran.me>
+ * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
-'use strict()';
+'use strict()'
 
-var Redmine = require('../lib/redmine');
+const Redmine = require('../lib/redmine')
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'redmine.zanran.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781',
-  format: 'json'
-};
+/// ////////////////////////////////////////////////////////////
+const hostname =
+  process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
 // -----------------------------------------------------------------------------
-var dump_obj = function(obj) {
-  for (var item in obj) {
-    console.log('  ' + item + ': ' + JSON.stringify(obj[item]));
-  }
-};
 
-/*
-redmine.projects({include: "issue_categories"}, function(err, data) {
-  if (err) throw err;
-
-  for (var i in data.projects) {
-    dump_project(data.projects[i]);
+const isseCategory = async () => {
+  const dumpObj = obj => {
+    for (const item in obj) {
+      console.log('  ' + item + ': ' + JSON.stringify(obj[item]))
+    }
   }
 
-  console.log('total_count: ' + data.total_count);
-});
-*/
-redmine.issue_categories_by_project_id(1, function(err, data) {
-  if (err) throw err;
-
-  dump_obj(data.issue_categories);
-});
-
-/*
-var issue_category = {
-  issue_category: {
-    name: 'rest api',
-    assigned_to_id: 5
+  await redmine.projects({ include: 'issue_categories' }).then(response => {
+    for (const i in response.data.projects) {
+      dumpObj(response.data.projects[i])
+    }
+    console.log('total_count: ' + response.data.total_count)
+  })
+  const issueCategory = {
+    issue_category: {
+      name: 'rest api',
+      assigned_to_id: 5
+    }
   }
-};
-redmine.create_issue_category(1, issue_category, function(err, data) {
-  if (err) throw err;
 
-  console.log(data);
-});
-*/
+  await redmine.create_issue_category(1, issueCategory).then(response => {
+    console.log(response.data)
+    this.id = response.data.issue_category.id
+  })
 
-redmine.issue_category_by_id(1, function(err, data) {
-  if (err) throw err;
+  await redmine.issue_categories_by_project_id(1).then(response => {
+    console.log(response.data)
+    dumpObj(response.data.issue_categories)
+  })
 
-  dump_obj(data.issue_categories);
-});
-/*
-var issue_category = {
-  issue_category: {
-    name: 'rest api - 2',
-    assigned_to_id: 5
+  await redmine.issue_category_by_id(this.id).then(response => {
+    dumpObj(response.data.issue_categories)
+  })
+
+  const updateIssueCategory = {
+    issue_category: {
+      name: 'rest api - 2',
+      assigned_to_id: 5
+    }
   }
-};
-redmine.update_issue_category(1, issue_category, function(err, data) {
-  if (err) throw err;
 
-  console.log(data);
-});
+  await redmine
+    .update_issue_category(this.id, updateIssueCategory)
+    .then(response => {
+      console.log(response.data)
+    })
 
+  await redmine.issue_category_by_id(this.id).then(response => {
+    dumpObj(response.data.issue_categories)
+  })
 
-redmine.delete_issue_category(1, function(err, data) {
-  if (err) throw err;
+  await redmine.delete_issue_category(this.id).then(response => {
+    console.log(response.data)
+  })
+}
 
-  console.log(data);
-});
-*/
+isseCategory().catch(err => {
+  console.log(err.message)
+  console.log(err.request.method)
+  console.log(err.request.path)
+})

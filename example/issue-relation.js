@@ -1,52 +1,50 @@
 /*
- * get-redmine-issue - test request for issues
- * Author: wayne <wayne@zanran.me>
+ * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
-'use strict()';
+'use strict()'
 
-var Redmine = require('../lib/redmine');
+const Redmine = require('../lib/redmine')
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'redmine.zanran.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781',
-  format: 'json'
-};
+/// ////////////////////////////////////////////////////////////
+const hostname =
+  process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
 // -----------------------------------------------------------------------------
-
-redmine.issue_relation_by_issue_id(5, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
-
-
-redmine.issue_relation_by_id(1, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
-
-/*
-redmine.delete_issue_relation(19, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
-*/
-
-var relations = {
-  relation: {
-    issue_to_id: 77,
-    relation_type: 'duplicates'
+const issueRelation = async () => {
+  await redmine.issue_relation_by_issue_id(5).then(response => {
+    console.log(response.data)
+  })
+  const relations = {
+    relation: {
+      issue_to_id: 6,
+      relation_type: 'duplicates'
+    }
   }
-};
-redmine.create_issue_relation(5, relations, function(err, data) {
-  if (err) throw err;
 
-  console.log(data);
-});
+  await redmine.create_issue_relation(5, relations).then(response => {
+    console.log(response.data)
+    this.id = response.data.relation.id
+  })
+
+  await redmine.issue_relation_by_id(this.id).then(response => {
+    console.log(response.data)
+  })
+
+  await redmine.delete_issue_relation(this.id).then(response => {
+    console.log(response.data)
+  })
+}
+
+issueRelation().catch(err => {
+  console.log(err.message)
+  console.log(err.request.method)
+  console.log(err.request.path)
+})

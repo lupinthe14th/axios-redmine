@@ -1,35 +1,36 @@
 /*
- * get-redmine-issue - test request for issues
- * Author: wayne <wayne@zanran.me>
+ * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
-'use strict()';
+'use strict()'
 
-var Redmine = require('../lib/redmine');
+const Redmine = require('../lib/redmine')
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'redmine.zanran.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781',
-  format: 'json'
-};
+/// ////////////////////////////////////////////////////////////
+const hostname =
+  process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
-
-var dump_fields = function(fields) {
-  console.log('Dumping Custom Fields:');
-  for (var item in fields) {
-    console.log('  ' + item + ': ' + JSON.stringify(fields[item]));
+const dumpFields = fields => {
+  console.log('Dumping Custom Fields:')
+  for (const item in fields) {
+    console.log('  ' + item + ': ' + JSON.stringify(fields[item]))
   }
-};
+}
 
-redmine.custom_fields(function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-
-  for (var i in data.custom_fields) {
-    dump_fields(data.custom_fields[i]);
-  }
-});
+redmine
+  .custom_fields()
+  .then(response => {
+    for (const i in response.data.custom_fields) {
+      dumpFields(response.data.custom_fields[i])
+    }
+  })
+  .catch(err => {
+    console.log(err)
+  })
