@@ -1,5 +1,4 @@
 /*
- * get-redmine-issue - test request for issues
  * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
