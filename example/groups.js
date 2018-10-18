@@ -1,85 +1,90 @@
 /*
- * get-redmine-issue - test request for issues
- * Author: wayne <wayne@zanran.me>
+ * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
-'use strict()';
+'use strict()'
 
-var Redmine = require('../lib/redmine');
+const Redmine = require('../lib/redmine')
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'redmine.zanran.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781',
-  format: 'json'
-};
+/// ////////////////////////////////////////////////////////////
+const hostname =
+  process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
 // -----------------------------------------------------------------------------
-var dump_obj = function(obj) {
-  for (var item in obj) {
-    console.log('  ' + item + ': ' + JSON.stringify(obj[item]));
+const groups = async () => {
+  await redmine.groups().then(response => {
+    console.log(response.data)
+  })
+
+  const group = {
+    group: {
+      name: 'rest-api-3-1',
+      user_ids: [5]
+    }
   }
-};
 
+  await redmine.create_group(group).then(response => {
+    console.log(response.data)
+    this.id = response.data.group.id
+  })
 
-redmine.groups(function(err, data) {
-  if (err) throw err;
+  await redmine
+    .group_by_id(this.id, { include: 'users, memberships' })
+    .then(response => {
+      console.log(JSON.stringify(response.data))
+    })
 
-  console.log(data);
-});
-
-/*
-var group = {
-  group: {
-    name: 'rest-api-3-1',
-    user_ids: [ 5]
+  const uGroup = {
+    group: {
+      name: 'nodejs',
+      user_ids: [5]
+    }
   }
-};
-redmine.create_group(group, function(err, data) {
-  if (err) throw err;
 
-  console.log(data);
-});
-*/
+  await redmine.update_group(this.id, uGroup).then(response => {
+    console.log(response.data)
+  })
+  await redmine
+    .group_by_id(this.id, { include: 'users, memberships' })
+    .then(response => {
+      console.log(JSON.stringify(response.data))
+    })
 
-redmine.group_by_id(73, {include: 'users, memberships'}, function(err, data) {
-  if (err) throw err;
+  await redmine.add_user_to_group(this.id, 6).then(response => {
+    console.log(response.data)
+  })
+  await redmine
+    .group_by_id(this.id, { include: 'users, memberships' })
+    .then(response => {
+      console.log(JSON.stringify(response.data))
+    })
 
-  console.log(data);
-});
+  await redmine.remove_user_from_group(this.id, 5).then(response => {
+    console.log(response.data)
+  })
+  await redmine
+    .group_by_id(this.id, { include: 'users, memberships' })
+    .then(response => {
+      console.log(JSON.stringify(response.data))
+    })
 
-/*
-var u_group = {
-  group: {
-    name: 'nodejs',
-    user_ids: [ 5]
-  }
-};
-redmine.update_group(73, u_group, function(err, data) {
-  if (err) throw err;
+  await redmine.delete_group(this.id).then(response => {
+    console.log(response.data)
+  })
+  await redmine.groups().then(response => {
+    console.log(response.data)
+  })
+}
 
-  console.log(data);
-});
-
-redmine.delete_group(74, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
-*/
-
-/*
-redmine.add_user_to_group(73, 9, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
-*/
-
-redmine.remove_user_from_group(73, 5, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
+groups().catch(err => {
+  console.log(err.message)
+  console.log(err.request.method)
+  console.log(err.request.path)
+})
