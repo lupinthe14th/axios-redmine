@@ -1,65 +1,60 @@
 /*
- * get-redmine-issue - test request for issues
- * Author: wayne <wayne@zanran.me>
+ * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
-'use strict()';
+'use strict()'
 
-var Redmine = require('../lib/redmine');
+const Redmine = require('../lib/redmine')
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'redmine.zanran.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781',
-  format: 'json'
-};
+/// ////////////////////////////////////////////////////////////
+const hostname =
+  process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
 // -----------------------------------------------------------------------------
 
-redmine.membership_by_project_id(1, function(err, data) {
-  if (err) throw err;
+const projectMembership = async () => {
+  await redmine.membership_by_project_id(1).then(response => {
+    console.log(response.data)
+  })
 
-  console.log(data);
-});
+  await redmine.project_membership_by_id(5).then(response => {
+    console.log(response.data)
+  })
 
+  await redmine
+    .create_project_membership(1, {
+      membership: { user_id: 5, role_ids: [3] }
+    })
+    .then(response => {
+      console.log(response.data)
+      this.id = response.data.membership.id
+    })
 
-redmine.project_membership_by_id(1, function(err, data) {
-  if (err) throw err;
-
-  for (var item in data.membership) {
-    console.log(data.membership[item]);
+  const membership = {
+    role_ids: {
+      role_id: 5
+    }
   }
-});
 
-/*
-redmine.delete_project_membership(2, function(err, data) {
-  if (err) throw err;
+  await redmine
+    .update_project_membership(this.id, membership)
+    .then(response => {
+      console.log(response.data)
+    })
 
-  console.log(data);
-});
-*/
-/*
-var membership = {
-  role_ids: {
-    role_id: 5
-  }
-};
-redmine.update_project_membership(1, membership, function(err, data) {
-  if (err) throw err;
+  await redmine.delete_project_membership(this.id).then(response => {
+    console.log(response.data)
+  })
+}
 
-  console.log(data);
-});
-
-
-var membership = {
-  user_id: 5,
-  role_ids: [2]
-};
-redmine.create_project_membership(5, membership, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
-*/
+projectMembership().catch(err => {
+  console.log(err)
+  console.log(err.response.data.errors)
+})
