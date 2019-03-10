@@ -1,84 +1,84 @@
 /*
- * get-redmine-issue - test request for issues
- * Author: wayne <wayne@zanran.me>
+ * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
-'use strict()';
+'use strict()'
 
-var Redmine = require('../lib/redmine');
+const Redmine = require('../lib/redmine')
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'redmine.zanran.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781',
-  format: 'json'
-};
+/// ////////////////////////////////////////////////////////////
+const hostname =
+  process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
-
-var dump_project = function(project) {
-  console.log('Dumping project:');
-  for (var item in project) {
-    console.log('  ' + item + ': ' + JSON.stringify(project[item]));
+const dumpProject = project => {
+  console.log('Dumping project:')
+  for (const item in project) {
+    console.log('  ' + item + ': ' + JSON.stringify(project[item]))
   }
-};
+}
 
-redmine.projects({include: "trackers, issue_categories, enabled_modules"}, function(err, data) {
-  if (err) throw err;
+const redmineProject = async () => {
+  await redmine
+    .projects({ include: 'trackers, issue_categories, enabled_modules' })
+    .then(response => {
+      console.log(response.data)
 
-  console.log(data);
+      for (const i in response.data.projects) {
+        dumpProject(response.data.projects[i])
+      }
 
-  for (var i in data.projects) {
-    dump_project(data.projects[i]);
+      console.log('total_count: ' + response.data.total_count)
+    })
+
+  await redmine
+    .get_project_by_id(1, {
+      include: 'trackers, issue_categories, enabled_modules'
+    })
+    .then(response => {
+      console.log(response.data)
+
+      dumpProject(response.data.project)
+    })
+
+  const project = {
+    project: {
+      name: 'TEST PROJECT FOR REST API - 2',
+      identifier: 'test-rest-api-2',
+      enabled_module_names: [
+        'boards',
+        'calendar',
+        'documents',
+        'files',
+        'gantt',
+        'issue_tracking',
+        'news'
+      ]
+    }
   }
 
-  console.log('total_count: ' + data.total_count);
-});
+  await redmine.create_project(project).then(response => {
+    console.log(response.data)
+  })
 
-
-redmine.get_project_by_id(5, {include: "trackers, issue_categories, enabled_modules"}, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-
-  dump_project(data.project);
-});
-
-/*
-var project = {
-  project: {
-    name: 'TEST PROJECT FOR REST API - 2',
-    identifier: 'test-rest-api-2',
-    enabled_module_names: ['boards', 'calendar', 'documents', 'files', 'gantt', 'issue_tracking', 'news']
+  const updateProject = {
+    project: {
+      name: 'TEST PROJECT FOR REST API - 5',
+      enabled_module_names: ['wiki', 'issue_tracking', 'news']
+    }
   }
-};
-redmine.create_project(project, function(err, data) {
-  if (err) throw err;
 
-  console.log(data);
-});
+  await redmine.update_project('test-rest-api-2', updateProject)
 
+  await redmine.delete_project('test-rest-api-2')
+}
 
-var project = {
-  project: {
-    name: 'TEST PROJECT FOR REST API - 5',
-    enabled_module_names: ['wiki', 'issue_tracking', 'news']
-  }
-};
-redmine.update_project('test-rest-api-2', project, function(err, data) {
-  if (err) throw err;
-
-  console.log(data);
-});
-
-
-redmine.delete_project('6', function(err, data) {
-  if (err) {
-    console.log(err);
-    return ;
-  } else {
-    console.log('Delete project #1: ' + JSON.stringify(data));
-  }
-});
-*/
+redmineProject().catch(err => {
+  console.log(err)
+})
