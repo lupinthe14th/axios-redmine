@@ -1,45 +1,51 @@
 /*
- * get-redmine-issue - test request for issues
- * Author: wayne <wayne@zanran.me>
+ * Author: lupinthe14th <hideosuzuki@ordinarius-fectum.net>
  */
 
-'use strict()';
+'use strict()'
 
-var Redmine = require('../lib/redmine');
+const Redmine = require('../lib/redmine')
 
-///////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'redmine.zanran.me';
-var config = {
-  apiKey: process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781',
-  format: 'json'
-};
+/// ////////////////////////////////////////////////////////////
+const hostname =
+  process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
+const config = {
+  apiKey:
+    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
+}
 
-var redmine = new Redmine(hostname, config);
+const redmine = new Redmine(hostname, config)
 
-
-var dump_time_entry = function(fields) {
-  for (var item in fields) {
-    console.log('  ' + item + ': ' + JSON.stringify(fields[item]));
+const dumpTimeEntry = fields => {
+  for (const item in fields) {
+    console.log('  ' + item + ': ' + JSON.stringify(fields[item]))
   }
-};
+}
 
-redmine.time_entries(function(err, data) {
-  if (err) throw err;
-/*
-  console.log(data);
-
-  for (var i in data.time_entries) {
-    dump_time_entry(data.time_entries[i]);
-  }*/
-});
-
-
-redmine.get_time_entry_by_id(4, function(err, data) {
-  if (err) throw err;
-
-  dump_time_entry(data.time_entry);
-});
-
+redmine
+  .time_entries()
+  .then(response => {
+    console.log(response.data)
+    for (const i in response.data.time_entries) {
+      dumpTimeEntry(response.data.time_entries[i])
+    }
+  })
+  .catch(err => {
+    console.log(err.message)
+    console.log(err.request.method)
+    console.log(err.request.path)
+  })
+redmine
+  .get_time_entry_by_id(4)
+  .then(response => {
+    dumpTimeEntry(response.data.time_entry)
+  })
+  .catch(err => {
+    console.log(err.message)
+    console.log(err.request.method)
+    console.log(err.request.path)
+  })
 /*
 redmine.delete_time_entry(5, function(err, data) {
   if (err) throw err;
@@ -48,28 +54,40 @@ redmine.delete_time_entry(5, function(err, data) {
 });
 */
 
-/*
-var time_entry = {
+const timeEntry = {
   time_entry: {
-    project_id: 7,
+    project_id: 1,
+    activity_id: 8,
     hours: '3'
   }
-};
-redmine.create_time_entry(time_entry, function(err, data) {
-  if (err) throw err;
+}
 
-  console.log(data);
-});
-*/
+redmine
+  .create_time_entry(timeEntry)
+  .then(response => {
+    console.log(response.data)
+  })
+  .catch(err => {
+    console.log(err.message)
+    console.log(err.response.data.errors)
+    console.log(err.request.method)
+    console.log(err.request.path)
+  })
 
-var time_entry_update = {
+const timeEntryUpdate = {
   time_entry: {
     issue_id: '12',
     hours: 3
   }
-};
-redmine.update_time_entry(2, time_entry_update, function(err, data) {
-  if (err) throw err;
+}
 
-  console.log(data);
-});
+redmine
+  .update_time_entry(1, timeEntryUpdate)
+  .then(response => {
+    console.log(response.data)
+  })
+  .catch(err => {
+    console.log(err.message)
+    console.log(err.request.method)
+    console.log(err.request.path)
+  })
