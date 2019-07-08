@@ -10,7 +10,7 @@ const assert = require('assert')
 const Redmine = require('../lib/redmine')
 
 /// ////////////////////////////////////////////////////////////
-const hostname = process.env.REDMINE_HOST || 'redmine.ordinarius-fectum.net'
+const hostname = process.env.REDMINE_HOST || 'https://redmine.example.org'
 
 describe('Redmine constructor', function () {
   it('should throw host not specified error when no host or config given', function (done) {

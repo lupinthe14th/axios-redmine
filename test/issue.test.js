@@ -8,7 +8,7 @@ const assert = require('assert')
 const Redmine = require('../lib/redmine')
 
 /// ////////////////////////////////////////////////////////////
-const hostname = process.env.REDMINE_HOST || 'redmine.ordinarius-fectum.net'
+const hostname = process.env.REDMINE_HOST || 'https://redmine.example.org'
 const config = {
   apiKey:
     process.env.REDMINE_APIKEY || 'bed1ba0544b681e530c2447341607f423c9c8781'
