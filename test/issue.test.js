@@ -19,9 +19,7 @@ const redmine = new Redmine(hostname, config)
 describe('issue.test.js', function () {
   it('test-get-issue-with-invalid-id', function (done) {
     try {
-      redmine.get_issue_by_id('0', function (err, data) {
-        if (err) throw err
-      })
+      redmine.get_issue_by_id('0')
     } catch (e) {
       assert.strictEqual(
         e.toString().toString(),
