@@ -10,7 +10,7 @@ const assert = require('assert')
 const Redmine = require('../lib/redmine')
 
 /// ////////////////////////////////////////////////////////////
-var hostname = process.env.REDMINE_HOST || 'localhost'
+const hostname = process.env.REDMINE_HOST || 'redmine.ordinarius-fectum.net'
 
 describe('Redmine constructor', function () {
   it('should throw host not specified error when no host or config given', function (done) {
@@ -36,7 +36,7 @@ describe('Redmine constructor', function () {
 
   it('should throw authentication missing error when no config given', function (done) {
     try {
-      new Redmine('localhost')
+      new Redmine(hostname)
     } catch (e) {
       assert.strictEqual(
         e.toString(),
@@ -48,7 +48,7 @@ describe('Redmine constructor', function () {
 
   it('should throw authentication missing error when API key and credentials missing', function (done) {
     try {
-      new Redmine('localhost', {})
+      new Redmine(hostname, {})
     } catch (e) {
       assert.strictEqual(
         e.toString(),
@@ -63,7 +63,7 @@ describe('Redmine constructor', function () {
       username: 'dummy-username'
     }
     try {
-      new Redmine('localhost', {})
+      new Redmine(hostname, config)
     } catch (e) {
       assert.strictEqual(
         e.toString(),
@@ -78,7 +78,7 @@ describe('Redmine constructor', function () {
       password: 'dummy-password'
     }
     try {
-      new Redmine('localhost', {})
+      new Redmine('localhost', config)
     } catch (e) {
       assert.strictEqual(
         e.toString(),
@@ -92,7 +92,14 @@ describe('Redmine constructor', function () {
     const config = {
       apiKey: process.env.REDMINE_APIKEY || 'my-redmine-api-key'
     }
-    new Redmine(hostname, config)
+    try {
+      new Redmine(hostname, config)
+    } catch (e) {
+      assert.strictEqual(
+        e.toString(),
+        'Error: You should provide an API key or username & password !'
+      )
+    }
     done()
   })
 
@@ -101,7 +108,14 @@ describe('Redmine constructor', function () {
       username: 'dummy-username',
       password: 'dummy-password'
     }
-    new Redmine(hostname, config)
+    try {
+      new Redmine(hostname, config)
+    } catch (e) {
+      assert.strictEqual(
+        e.toString(),
+        'Error: You should provide an API key or username & password !'
+      )
+    }
     done()
   })
 
