@@ -123,13 +123,15 @@ describe('Redmine constructor', function () {
     const config = {
       apiKey: 'dummy-api-key',
       username: 'dummy-username',
-      password: 'dummy-password'
+      password: 'dummy-password',
+      rejectUnauthorized: '1'
     }
     const redmine = new Redmine(hostname, config)
 
     assert.strictEqual(redmine.apiKey, 'dummy-api-key')
     assert.strictEqual(redmine.username, 'dummy-username')
     assert.strictEqual(redmine.password, 'dummy-password')
+    assert.strictEqual(redmine.rejectUnauthorized, true)
 
     done()
   })
