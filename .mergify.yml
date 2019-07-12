@@ -16,7 +16,15 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-
+  - name: automatic merge without review
+    conditions:
+      - base=master
+      - status-success=Travis CI - Pull Request
+      - label=no-review-needed
+      - label!=work-in-progress
+    actions:
+      merge:
+        method: merge
   - name: delete head branch after merge
     conditions: []
     actions:
