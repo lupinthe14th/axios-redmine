@@ -13,14 +13,17 @@ cache: yarn
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH="$HOME/.yarn/bin:$PATH"
+  - yarn global add greenkeeper-lockfile@1
 install: yarn
+before_script:
+  - greenkeeper-lockfile-update
 script:
   - yarn test
 
 after_script:
   - yarn add -D coveralls
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-
+  - greenkeeper-lockfile-upload
 jobs:
   include:
     - stage: npm release
@@ -33,3 +36,6 @@ jobs:
         skip_cleanup: true
         on:
           tags: true
+env:
+  global:
+    - secure: "h+gDIGWp3trkX2iYRiQcOlhWj8zQ4sIr5SotnphXfnCWXHlPMdAwk/zHxAOOhU9A3zoS55gpXOSK2S2Ph8Nr9NH8xJCt0i9wg2NIq5YD4X9W85GTE1D/xGZpxFN6L7p8ue8sNw52YdT3D62BKKR1BV5SYEL5Vl12jcUwPWlP5MtiIuupesGlTZYkCOUmE3MwHjTtpswAbTXhH08kT3m1ux8cRXu4rChtLmdniXSlgP4EEyhgpeGU729/ODkbh9g+dVhOQW4yAidC3e6+aYzjttP1v6bBpjJI4iS/oTjKHtfXUJmet3pxCGVDLJW2Y87h90uoznieGSJZSBp8VlBNL9DvmELOinrVmx0Paa4fy8QgWpBeQemhCBj4yKPQzcuolD64r0B0HRmc5bon9SVEh86tVCG9JZW79+6Uyz/4rtJIq5RH1FM2DBXzH4oU1PZdRECXv2j/IzOc48VTfphflYK9SDrnW151M9Pq71duEkPkhVFKEqL6JsJ//sDNiqRTnzPG9/AYGShlqOhCxT82DT9d6kbRtZ9QQY7iJJ5kStJWlW4KFEbavox6b2l3KNvOpSVaUDauZH2nOQltfTJ3E7rLW02ELwUdJpURj+1ONb0n2nOlFQn5Nf6LgETAmLu6Y2ptPplxPDmGyic2XHwA5AZkVQen8h/pj+7rbcUe7ms="
