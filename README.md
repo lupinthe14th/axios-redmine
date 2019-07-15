@@ -4,7 +4,7 @@ axios-redmine
 [![npm package](https://nodei.co/npm/axios-redmine.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/axios-redmine/)
 
 [![Build Status](https://travis-ci.org/lupinthe14th/axios-redmine.svg?branch=master)](https://travis-ci.org/lupinthe14th/axios-redmine)
-[![Coverage Status](https://coveralls.io/repos/github/lupinthe14th/axios-redmine/badge.svg?branch=master)](https://coveralls.io/github/lupinthe14th/axios-redmine?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/lupinthe14th/axios-redmine/badge.svg?branch=master)](https://coveralls.io/github/lupinthe14th/axios-redmine?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/lupinthe14th/axios-redmine.svg)](https://greenkeeper.io/)
 [![Mergify Status][mergify-status]][mergify]
 
 [mergify]: https://mergify.io
