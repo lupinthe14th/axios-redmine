@@ -14,15 +14,14 @@ before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH="$HOME/.yarn/bin:$PATH"
   - yarn global add greenkeeper-lockfile@1
+  - yarn global add codecov
 install: yarn
 before_script:
   - greenkeeper-lockfile-update
 script:
   - yarn test
-
 after_script:
-  - yarn add -D coveralls
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - codecov
   - greenkeeper-lockfile-upload
 jobs:
   include:
