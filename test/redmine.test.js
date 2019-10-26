@@ -92,14 +92,8 @@ describe('Redmine constructor', function () {
     const config = {
       apiKey: process.env.REDMINE_APIKEY || 'my-redmine-api-key'
     }
-    try {
-      new Redmine(hostname, config)
-    } catch (e) {
-      assert.strictEqual(
-        e.toString(),
-        'Error: You should provide an API key or username & password !'
-      )
-    }
+    const redmine = new Redmine(hostname, config)
+    assert.strictEqual(redmine.apiKey, 'my-redmine-api-key')
     done()
   })
 
@@ -108,14 +102,9 @@ describe('Redmine constructor', function () {
       username: 'dummy-username',
       password: 'dummy-password'
     }
-    try {
-      new Redmine(hostname, config)
-    } catch (e) {
-      assert.strictEqual(
-        e.toString(),
-        'Error: You should provide an API key or username & password !'
-      )
-    }
+    const redmine = new Redmine(hostname, config)
+    assert.strictEqual(redmine.username, 'dummy-username')
+    assert.strictEqual(redmine.password, 'dummy-password')
     done()
   })
 
@@ -126,7 +115,7 @@ describe('Redmine constructor', function () {
       password: 'dummy-password',
       rejectUnauthorized: '1'
     }
-    const redmine = new Redmine(hostname, config)
+    const redmine = new Redmine(hostname, config, 8443)
 
     assert.strictEqual(redmine.apiKey, 'dummy-api-key')
     assert.strictEqual(redmine.username, 'dummy-username')
