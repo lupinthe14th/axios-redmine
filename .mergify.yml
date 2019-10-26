@@ -12,7 +12,7 @@ pull_request_rules:
     conditions:
       - author=greenkeeper[bot]
       - status-success=continuous-integration/travis-ci/pr
-      - status-sucess=greenkeeper/verify
+      - status-success=greenkeeper/verify
     actions:
       merge:
         method: merge
