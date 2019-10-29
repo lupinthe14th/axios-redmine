@@ -21,9 +21,24 @@ const mock = new MockAdapter(redmine.instance)
 
 mock.onGet('/issues/1.json').reply(200, {
   issue: {
-    project_id: 1,
+    project: { id: 1, name: 'Example Project' },
+    tracker: { id: 1, name: 'bug' },
+    status: { id: 1, name: 'new' },
+    priority: { id: 2, name: 'nomal' },
+    author: { id: 1, name: 'Redmine Admin' },
     subject: 'Example',
-    priority_id: 4
+    description: '',
+    start_date: '2019-10-29',
+    due_date: null,
+    done_ratio: 0,
+    is_private: false,
+    estimated_hours: null,
+    total_estimated_hours: null,
+    spent_hours: 0,
+    total_spent_hours: 0,
+    created_on: '2019-10-29T13:50:28Z',
+    updated_on: '2019-10-29T13:50:28Z',
+    closed_on: null
   }
 })
 
@@ -40,13 +55,11 @@ describe('issue.test.js', function () {
     }
     done()
   })
-  it('test-get-issue-by-id-1', function (done) {
-    redmine.get_issue_by_id(1, {}).then(function (response) {
-      assert.strictEqual(response.status, 200)
-      assert.strictEqual(response.data.issue.project_id, 1)
-      assert.strictEqual(response.data.issue.subject, 'Example')
-      assert.strictEqual(response.data.issue.priority_id, 4)
-    })
-    done()
+  it('test-get-issue-by-id-1', async function () {
+    const response = await redmine.get_issue_by_id(1, {})
+    assert.strictEqual(response.status, 200)
+    assert.strictEqual(response.data.issue.project.id, 1)
+    assert.strictEqual(response.data.issue.subject, 'Example')
+    assert.strictEqual(response.data.issue.priority.id, 2)
   })
 })
