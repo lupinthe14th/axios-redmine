@@ -35,7 +35,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', ['mochacli'])
 
-  grunt.registerTask('coverage', ['mocha_istanbul:coveralls'])
+  grunt.registerTask('coverage', ['mocha_istanbul:coverage'])
 
   // default option to connect server
   grunt.registerTask('serve', ['eslint', 'mochacli', 'mocha_istanbul'])
