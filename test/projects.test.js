@@ -85,4 +85,10 @@ describe('project.test.js', function () {
     assert.strictEqual(response.status, 200)
     assert.deepStrictEqual(response.data.projects, projects)
   })
+  it('test-showing-project', async function () {
+    mock.onGet('/projects/1.json').reply(200, { projects: projects[0] })
+    const response = await redmine.get_project_by_id(1, {})
+    assert.strictEqual(response.status, 200)
+    assert.deepStrictEqual(response.data.projects, projects[0])
+  })
 })
