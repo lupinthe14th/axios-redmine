@@ -11,8 +11,9 @@ axios-redmine
 [mergify]: https://mergify.io
 [mergify-status]: https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/lupinthe14th/axios-redmine&style=flat
 
-*[axios-redmine](https://github.com/lupinthe14th/axios-redmine) is a nodejs library that supports 100% the [Redmine's REST API](http://www.redmine.org/projects/redmine/wiki/Rest_api)'s features.*
+*[axios-redmine](https://github.com/lupinthe14th/axios-redmine) is a nodejs library that supports 100% of the [Redmine's REST API](http://www.redmine.org/projects/redmine/wiki/Rest_api)'s features.*
 
+axios-redmine is a node's library that supports 100% features of Redmine's REST API.
 ## Installation
 
 To install axios-redmine, simply:
