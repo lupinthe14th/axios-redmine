@@ -76,6 +76,13 @@ const projects = [
     updated_on: '2019-10-29T13:50:16Z'
   }
 ]
+const updateProject = {
+  project: {
+    name: 'rename test project',
+    enabled_module_names: ['wiki', 'issue_tracking', 'news']
+  }
+}
+
 const mock = new MockAdapter(redmine.instance)
 
 describe('project.test.js', function () {
@@ -90,5 +97,26 @@ describe('project.test.js', function () {
     const response = await redmine.get_project_by_id(1, {})
     assert.strictEqual(response.status, 200)
     assert.deepStrictEqual(response.data.projects, projects[0])
+  })
+  it('test-creating-project', async function () {
+    mock.onPost('/projects.json').reply(201)
+    const response = await redmine.create_project({
+      project: {
+        name: 'test project',
+        identifier: 'test',
+        enabled_module_names: ['time_tracking', 'issue_tracking']
+      }
+    })
+    assert.strictEqual(response.status, 201)
+  })
+  it('test-updateing-project', async function () {
+    mock.onPut('/projects/test.json', updateProject).reply(200)
+    const response = await redmine.update_project('test', updateProject)
+    assert.strictEqual(response.status, 200)
+  })
+  it('test-deleteing-project', async function () {
+    mock.onDelete('/projects/test.json').reply(200)
+    const response = await redmine.delete_project('test')
+    assert.strictEqual(response.status, 200)
   })
 })
