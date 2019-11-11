@@ -59,6 +59,13 @@ const issues = [
     closed_on: null
   }
 ]
+
+const updateIssue = {
+  issue: {
+    subject: 'Subject changed',
+    notes: 'The subject was changed'
+  }
+}
 const mock = new MockAdapter(redmine.instance)
 
 describe('issue.test.js', function () {
@@ -98,20 +105,8 @@ describe('issue.test.js', function () {
     assert.strictEqual(response.status, 201)
   })
   it('test-updating-an-issue', async function () {
-    mock
-      .onPut('/issues/1.json', {
-        issue: {
-          subject: 'Subject changed',
-          notes: 'The subject was changed'
-        }
-      })
-      .reply(200)
-    const response = await redmine.update_issue(1, {
-      issue: {
-        subject: 'Subject changed',
-        notes: 'The subject was changed'
-      }
-    })
+    mock.onPut('/issues/1.json', updateIssue).reply(200)
+    const response = await redmine.update_issue(1, updateIssue)
     assert.strictEqual(response.status, 200)
   })
   it('test-adding-a-watcher-with-invalid-user_id', function (done) {
