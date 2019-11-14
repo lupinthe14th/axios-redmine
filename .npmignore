@@ -5,3 +5,7 @@ node_modules
 .env
 yarn-error.log
 docker-compose.yml
+coverage
+.github
+.mergify.yml
+.travis.yml
