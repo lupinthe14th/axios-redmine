@@ -9,6 +9,7 @@ branches:
     - master
     - develop
     - /^greenkeeper/.*$/
+    - /^v?[0-9\\.]+/
 cache: yarn
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -28,9 +29,6 @@ jobs:
     - stage: npm release
       if: tag IS present
       node_js: "node"
-      script: yarn compile
-      before_deploy:
-        - cd dist
       deploy:
         provider: npm
         email: "$NPM_EMAIL"
