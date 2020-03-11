@@ -34,7 +34,7 @@
     "eslint-plugin-standard": ">=4.0.0",
     "grunt": "^1.0.1",
     "grunt-eslint": "^22.0.0",
-    "grunt-mocha-cli": "^5.0.0",
+    "grunt-mocha-cli": "^6.0.0",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-mocha-test": "^0.13.3",
     "istanbul": "^0.4.3",
