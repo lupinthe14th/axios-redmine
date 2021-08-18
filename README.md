@@ -6,10 +6,6 @@ axios-redmine
 [![Build Status](https://travis-ci.org/lupinthe14th/axios-redmine.svg?branch=master)](https://travis-ci.org/lupinthe14th/axios-redmine)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lupinthe14th/axios-redmine.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/lupinthe14th/axios-redmine/branch/master/graph/badge.svg)](https://codecov.io/gh/lupinthe14th/axios-redmine)
-[![Mergify Status][mergify-status]][mergify]
-
-[mergify]: https://mergify.io
-[mergify-status]: https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/lupinthe14th/axios-redmine&style=flat
 
 *[axios-redmine](https://github.com/lupinthe14th/axios-redmine) is a nodejs library that supports 100% of the [Redmine's REST API](http://www.redmine.org/projects/redmine/wiki/Rest_api)'s features.*
 
