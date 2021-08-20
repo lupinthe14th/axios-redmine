@@ -1,0 +1,10 @@
+---
+services:
+  node:
+    env_file:
+      - .env
+    image: node:14-slim
+    volumes:
+      - ./:/app
+    working_dir:
+      /app
