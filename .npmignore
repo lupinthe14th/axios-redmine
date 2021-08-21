@@ -3,8 +3,11 @@ example
 test
 node_modules
 .env
+.editorconfig
+.eslintrc.js
+grunt
 yarn-error.log
-docker-compose.yml
+compose.yaml
 coverage
 .github
 .travis.yml

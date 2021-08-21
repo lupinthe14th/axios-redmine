@@ -22,7 +22,7 @@ const redmine = new Redmine(hostname, config)
  */
 const dumpIssue = function (issue) {
   console.log('Dumping issue:')
-  for (var item in issue) {
+  for (const item in issue) {
     console.log('  ' + item + ': ' + JSON.stringify(issue[item]))
   }
 }
