@@ -24,24 +24,23 @@
     "axios": "^0.21.1"
   },
   "devDependencies": {
-    "axios-mock-adapter": "^1.18.2",
-    "debug": "^4.1.0",
-    "eslint": "^7.5.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": ">=2.22.0",
-    "eslint-plugin-node": ">=11.1.0",
-    "eslint-plugin-promise": ">=4.0.0",
-    "eslint-plugin-standard": ">=4.0.0",
-    "grunt": "^1.2.1",
+    "@typescript-eslint/parser": "^4.29.2",
+    "@typescript-eslint/typescript-estree": "^4.29.2",
+    "axios-mock-adapter": "^1.20.0",
+    "debug": "^4.3.2",
+    "eslint": "^7.32.0",
+    "grunt": "^1.4.1",
     "grunt-eslint": "^23.0.0",
-    "grunt-mocha-cli": "^6.0.0",
+    "grunt-mocha-cli": "^7.0.0",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-mocha-test": "^0.13.3",
     "istanbul": "^0.4.3",
     "load-grunt-configs": "^1.0.0",
     "load-grunt-tasks": "^5.0.0",
-    "mocha": "^8.0.1",
-    "time-grunt": "^2.0.0"
+    "mocha": "^9.0.3",
+    "time-grunt": "^2.0.0",
+    "typescript": "^4.3.5",
+    "typescript-eslint-language-service": "^4.1.5"
   },
   "private": false
 }
