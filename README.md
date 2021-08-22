@@ -22,7 +22,7 @@ npm install axios-redmine
 
 ```js
 'use strict()'
-const Redmine = require('../lib/redmine')
+const Redmine = require('axios-redmine')
 
 // protocol required in Hostname, supports both HTTP and HTTPS
 const hostname = process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
