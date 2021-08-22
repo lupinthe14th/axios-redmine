@@ -5,7 +5,7 @@
 
 'use strict()'
 
-const Redmine = require('../lib/redmine')
+const Redmine = require('axios-redmine')
 
 /// ////////////////////////////////////////////////////////////
 const hostname = process.env.REDMINE_HOST || 'redmine.zanran.me'
