@@ -49,18 +49,6 @@ jobs:
           pattern: "*.sh"
           exclude: "./.git/*"
 
-  hadolint:
-    name: runner / hadolint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v1
-      - name: hadolint
-        uses: reviewdog/action-hadolint@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
-
   actionlint:
     name: runner / actionlint
     runs-on: ubuntu-latest
