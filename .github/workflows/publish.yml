@@ -1,5 +1,5 @@
 ---
-name: Bump version
+name: Publish Package to npmjs
 on:
   pull_request:
     branches:
@@ -25,3 +25,13 @@ jobs:
         with:
           tag-prefix: v
           target-branch: master
+      - name: Setup .npmrc file to publish to npm
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          registry-url: https://registry.npmjs.org
+          scope: '@lupinthe14th'
+      - run: yarn
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -21,7 +21,8 @@
   "author": "hideosuzuki@ordinarius-fectum.net",
   "license": "GPL-3.0",
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "codecov": "^3.8.3"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^4.29.2",
