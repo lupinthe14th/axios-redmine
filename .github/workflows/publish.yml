@@ -25,6 +25,11 @@ jobs:
         with:
           tag-prefix: v
           target-branch: master
+      - name: Release Builds
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: false
       - name: Setup .npmrc file to publish to npm
         uses: actions/setup-node@v3
         with:
