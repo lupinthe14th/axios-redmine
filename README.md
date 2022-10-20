@@ -3,7 +3,7 @@ axios-redmine
 
 [![npm package](https://nodei.co/npm/axios-redmine.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/axios-redmine/)
 
-[![Build Status](https://travis-ci.org/lupinthe14th/axios-redmine.svg?branch=master)](https://travis-ci.org/lupinthe14th/axios-redmine)
+[![Build Status](https://github.com/lupinthe14th/axios-redmine/actions/workflows/ci.yml/badge.svg)](https://github.com/lupinthe14th/axios-redmine/actions/workflows/ci.yml)
 [![Greenkeeper badge](https://badges.greenkeeper.io/lupinthe14th/axios-redmine.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/lupinthe14th/axios-redmine/branch/master/graph/badge.svg)](https://codecov.io/gh/lupinthe14th/axios-redmine)
 
