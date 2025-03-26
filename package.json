@@ -21,7 +21,7 @@
   "author": "hideosuzuki@ordinarius-fectum.net",
   "license": "GPL-3.0",
   "dependencies": {
-    "axios": "^0.29.0",
+    "axios": "^0.30.0",
     "codecov": "^3.8.3"
   },
   "devDependencies": {
