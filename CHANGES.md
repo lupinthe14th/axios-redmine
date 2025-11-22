@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fixed constructor error handling to properly throw errors instead of returning them
+- Fixed test suite to properly validate error throwing behavior
 
 ### Added
 - Added npm scripts: `lint`, `lint:fix`, `coverage`, `serve` for better development workflow

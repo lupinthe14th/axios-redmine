@@ -16,46 +16,50 @@ describe('Redmine constructor', function () {
   it('should throw host not specified error when no host or config given', function (done) {
     try {
       new Redmine()
+      done(new Error('Expected error to be thrown'))
     } catch (e) {
       assert.strictEqual(e.toString(), 'Error: host not specified!')
+      done()
     }
-    done()
   })
 
   it('should throw invalid hostname error when host is invalid', function (done) {
     try {
       new Redmine(1)
+      done(new Error('Expected error to be thrown'))
     } catch (e) {
       assert.strictEqual(
         e.toString(),
         'Error: host should be a string or url object!'
       )
+      done()
     }
-    done()
   })
 
   it('should throw authentication missing error when no config given', function (done) {
     try {
       new Redmine(hostname)
+      done(new Error('Expected error to be thrown'))
     } catch (e) {
       assert.strictEqual(
         e.toString(),
         'Error: You should provide an API key or username & password !'
       )
+      done()
     }
-    done()
   })
 
   it('should throw authentication missing error when API key and credentials missing', function (done) {
     try {
       new Redmine(hostname, {})
+      done(new Error('Expected error to be thrown'))
     } catch (e) {
       assert.strictEqual(
         e.toString(),
         'Error: You should provide an API key or username & password !'
       )
+      done()
     }
-    done()
   })
 
   it('should throw authentication missing error when password missing', function (done) {
@@ -64,13 +68,14 @@ describe('Redmine constructor', function () {
     }
     try {
       new Redmine(hostname, config)
+      done(new Error('Expected error to be thrown'))
     } catch (e) {
       assert.strictEqual(
         e.toString(),
         'Error: You should provide an API key or username & password !'
       )
+      done()
     }
-    done()
   })
 
   it('should throw authentication missing error when username missing', function (done) {
@@ -78,14 +83,15 @@ describe('Redmine constructor', function () {
       password: 'dummy-password'
     }
     try {
-      new Redmine('localhost', config)
+      new Redmine('http://localhost', config)
+      done(new Error('Expected error to be thrown'))
     } catch (e) {
       assert.strictEqual(
         e.toString(),
         'Error: You should provide an API key or username & password !'
       )
+      done()
     }
-    done()
   })
 
   it('should not throw errors when host and api key given', function (done) {
