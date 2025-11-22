@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+- Updated axios from ^0.30.0 to ^1.7.0 to address multiple security vulnerabilities (CVE-2023-45857, CVE-2024-39338)
+- Removed codecov package dependency (functionality handled by CI workflow)
+- Updated all devDependencies to latest stable versions to address security advisories
+
 ### Added
 - Added TypeScript type definitions (index.d.ts) for better TypeScript support
   - Comprehensive definitions for all 68 API methods
