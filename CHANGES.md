@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added TypeScript type definitions (index.d.ts) for better TypeScript support
+  - Comprehensive definitions for all 68 API methods
+  - Practical TypeScript examples with complete workflow demonstrations
+  - Export functionality for reusable functions
 - Added npm scripts: `lint`, `lint:fix`, `coverage`, `serve` for better development workflow
 
 ### Changed
