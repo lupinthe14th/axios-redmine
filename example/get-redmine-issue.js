@@ -10,8 +10,7 @@ const Redmine = require('axios-redmine')
 const hostname =
   process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
 const config = {
-  apiKey:
-    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  apiKey: process.env.REDMINE_APIKEY,
   rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
 }
 
