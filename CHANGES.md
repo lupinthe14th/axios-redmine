@@ -25,32 +25,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.53] - 2025-11-22
 
-### Added
-- Added CONTRIBUTING.md with comprehensive contribution guidelines
-- Added pull request template (.github/pull_request_template.md)
-- Added additional CI quality checks:
-  - ESLint check on LTS Node.js version
-  - npm security audit (moderate level, non-blocking)
-- Added more badges to README:
-  - npm version badge
-  - Node.js version requirement badge
-  - License badge
-- Added "Features" section to README highlighting key capabilities
-- Added "Requirements" section to README documenting Node.js >= 20.0.0
-
-### Changed
-- Improved README.md structure and formatting
-  - Better organized sections
-  - Added emoji icons for visual clarity
-  - Clearer feature highlights
-  - More professional presentation
-- Updated GitHub Actions workflows to latest versions:
-  - reviewdog.yml: Updated checkout action from v3 to v4
-  - codeql-analysis.yml: Updated checkout from v2 to v4, CodeQL actions from v1 to v3
-  - Improved workflow formatting and consistency
-
-## [0.1.53] - 2025-11-22
-
 ### Security
 - Updated axios from ^0.30.0 to ^1.7.0 to address multiple security vulnerabilities (CVE-2023-45857, CVE-2024-39338)
 - Removed codecov package dependency (functionality handled by CI workflow)
@@ -61,11 +35,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - And other dependency updates for security patches
 
 ### Added
+- Added CONTRIBUTING.md with comprehensive contribution guidelines
+- Added pull request template (.github/pull_request_template.md)
 - Added TypeScript type definitions (index.d.ts) for better TypeScript support
   - Comprehensive definitions for all 68 API methods
   - Practical TypeScript examples with complete workflow demonstrations
   - Export functionality for reusable functions
 - Added npm scripts: `lint`, `lint:fix`, `coverage`, `serve` for better development workflow
+- Added additional CI quality checks:
+  - ESLint check on LTS Node.js version
+  - npm security audit (moderate level, non-blocking)
+- Added more badges to README:
+  - npm version badge
+  - Node.js version requirement badge
+  - License badge
+- Added "Features" section to README highlighting key capabilities
+- Added "Requirements" section to README documenting Node.js >= 20.0.0
 
 ### Changed
 - **BREAKING**: Dropped Node.js 18.x support (EOL April 2025). Minimum version is now Node.js 20.0.0
@@ -78,13 +63,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Migrated ESLint configuration from legacy .eslintrc.js to modern flat config format (eslint.config.js)
 - Enhanced ESLint rules with stricter code quality checks (with Mocha-compatible overrides for test files)
 - Improved SECURITY.md with GitHub Security Advisories, scope clarification, and no bounty program notice
+- Improved README.md structure and formatting
+  - Better organized sections
+  - Added emoji icons for visual clarity
+  - Clearer feature highlights
+  - More professional presentation
+- Updated GitHub Actions workflows to latest versions:
+  - reviewdog.yml: Updated checkout action from v3 to v4
+  - codeql-analysis.yml: Updated checkout from v2 to v4, CodeQL actions from v1 to v3
+  - Improved workflow formatting and consistency
 
 ### Fixed
 - Fixed constructor error handling to properly throw errors instead of returning them
 - Fixed test suite to properly validate error throwing behavior
 
 ### Removed
-- Removed Greenkeeper badge from README (project now uses Renovate)
+- Removed Greenkeeper badge from README
 - Removed unused commented code in lib/redmine.js
 - Removed unnecessary `"private": false` from package.json
 
