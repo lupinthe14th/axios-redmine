@@ -32,7 +32,16 @@ module.exports = {
     // ES6+
     "prefer-const": "error",
     "no-var": "error",
-    "prefer-arrow-callback": "error",
     "prefer-template": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*.js"],
+      "rules": {
+        // Mocha recommends function expressions over arrow functions for test callbacks
+        // to preserve 'this' context
+        "prefer-arrow-callback": "off"
+      }
+    }
+  ]
 };

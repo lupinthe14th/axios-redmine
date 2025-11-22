@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated Node.js version support: now supports 16.x, 18.x, 20.x, and LTS (removed EOL versions 12.x and 14.x)
 - Removed hardcoded API keys from example files and README for better security
-- Enhanced ESLint rules with stricter code quality checks
+- Enhanced ESLint rules with stricter code quality checks (with Mocha-compatible overrides for test files)
 - Improved SECURITY.md with GitHub Security Advisories, scope clarification, and no bounty program notice
 
 ### Fixed
