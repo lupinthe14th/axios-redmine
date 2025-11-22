@@ -2,20 +2,39 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+We release patches for security vulnerabilities for the following versions:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 0.1.x   | :white_check_mark: |
+| < 0.1   | :x:                |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+We take the security of axios-redmine seriously. If you discover a security vulnerability, please follow these steps:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+### How to Report
+
+1. **Do NOT** open a public issue
+2. Email the maintainer directly at: hideosuzuki@ordinarius-fectum.net
+3. Include the following information:
+   - Type of vulnerability
+   - Full paths of source file(s) related to the vulnerability
+   - Location of the affected source code (tag/branch/commit or direct URL)
+   - Step-by-step instructions to reproduce the issue
+   - Proof-of-concept or exploit code (if possible)
+   - Impact of the vulnerability
+
+### What to Expect
+
+- **Initial Response**: You will receive an acknowledgment within 48 hours
+- **Status Updates**: We will provide updates on the progress every 5-7 days
+- **Disclosure Timeline**: We aim to patch vulnerabilities within 90 days
+- **Credit**: Security researchers will be credited in the release notes (unless anonymity is requested)
+
+### Vulnerability Assessment
+
+- **Accepted**: We will work on a fix and coordinate the release
+- **Declined**: We will explain why the issue is not considered a vulnerability
+
+Thank you for helping keep axios-redmine and its users safe!

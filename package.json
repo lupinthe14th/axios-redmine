@@ -9,7 +9,11 @@
     "test": "test"
   },
   "scripts": {
-    "test": "grunt serve"
+    "test": "grunt serve",
+    "lint": "eslint lib/**/*.js test/**/*.js example/**/*.js",
+    "lint:fix": "eslint --fix lib/**/*.js test/**/*.js example/**/*.js",
+    "coverage": "grunt coverage",
+    "serve": "grunt serve"
   },
   "keywords": [
     "Redmine",
