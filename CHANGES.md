@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added explicit check for merged PRs only
   - Improved step naming and added explicit shell specifications
   - Added --frozen-lockfile flag to yarn install
+  - Pinned action versions instead of using @master/@latest (security best practice):
+    - phips28/gh-action-bump-version@v11.0.3 (was @master)
+    - marvinpinto/action-automatic-releases@v1.2.1 (was @latest)
+  - Changed checkout ref to fetch-depth: 0 for full git history
 - Fixed actionlint and yamllint warnings:
   - Removed unnecessary `${{ }}` from if conditions in ci.yml
   - Changed `branches: - '!master'` to `branches-ignore:` in reviewdog.yml
