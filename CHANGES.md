@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Updated publish workflow (.github/workflows/publish.yml):
+  - Updated checkout action from v3 to v4
+  - Updated setup-node action from v3 to v4
+  - Added explicit check for merged PRs only
+  - Improved step naming and added explicit shell specifications
+  - Added --frozen-lockfile flag to yarn install
+
+## [0.1.53] - 2025-11-22
+
 ### Added
 - Added CONTRIBUTING.md with comprehensive contribution guidelines
 - Added pull request template (.github/pull_request_template.md)
