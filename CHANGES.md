@@ -15,7 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added npm scripts: `lint`, `lint:fix`, `coverage`, `serve` for better development workflow
 
 ### Changed
-- Updated Node.js version support: now supports 16.x, 18.x, 20.x, and LTS (removed EOL versions 12.x and 14.x)
+- Updated Node.js version support: now supports 18.x, 20.x, 22.x, and LTS (removed EOL versions 12.x, 14.x, and 16.x)
+- Updated GitHub Actions to latest versions (checkout@v4, setup-node@v4, codecov-action@v4)
+- Improved CI workflow with explicit permissions and better step naming
+- Changed Codecov to non-blocking (fail_ci_if_error: false) and only run on LTS version
 - Removed hardcoded API keys from example files and README for better security
 - Enhanced ESLint rules with stricter code quality checks (with Mocha-compatible overrides for test files)
 - Improved SECURITY.md with GitHub Security Advisories, scope clarification, and no bounty program notice
