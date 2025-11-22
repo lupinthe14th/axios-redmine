@@ -22,7 +22,8 @@ jobs:
         node-version: [18.x, 20.x, 22.x, lts/*]
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -32,13 +33,15 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+        shell: bash
 
       - name: Run tests
         run: yarn test
+        shell: bash
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
-        if: matrix.node-version == 'lts/*'
+        if: ${{ matrix.node-version == 'lts/*' }}
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           flags: unittests
