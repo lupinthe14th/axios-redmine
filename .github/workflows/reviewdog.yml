@@ -2,8 +2,8 @@
 name: reviewdog
 on:
   push:
-    branches:
-      - '!master'
+    branches-ignore:
+      - master
   pull_request:
     branches:
       - master
@@ -18,7 +18,7 @@ jobs:
       - name: misspell
         uses: reviewdog/action-misspell@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           locale: "US"
           reporter: github-pr-review
 
@@ -31,7 +31,7 @@ jobs:
       - name: yamllint
         uses: reviewdog/action-yamllint@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
 
   Shellcheck:
@@ -43,7 +43,7 @@ jobs:
       - name: shellcheck
         uses: reviewdog/action-shellcheck@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           path: "."
           pattern: "*.sh"
@@ -58,7 +58,7 @@ jobs:
       - name: actionlint
         uses: reviewdog/action-actionlint@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
 
   dotenv-linter:
@@ -70,5 +70,5 @@ jobs:
       - name: Run dotenv-linter with code suggestions
         uses: dotenv-linter/action-dotenv-linter@v2
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-code-suggestions

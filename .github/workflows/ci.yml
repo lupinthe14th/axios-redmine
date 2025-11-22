@@ -36,12 +36,12 @@ jobs:
         shell: bash
 
       - name: Run linter
-        if: ${{ matrix.node-version == 'lts/*' }}
+        if: matrix.node-version == 'lts/*'
         run: yarn lint
         shell: bash
 
       - name: Security audit
-        if: ${{ matrix.node-version == 'lts/*' }}
+        if: matrix.node-version == 'lts/*'
         run: yarn audit --level=moderate
         continue-on-error: true
         shell: bash
@@ -52,7 +52,7 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
-        if: ${{ matrix.node-version == 'lts/*' }}
+        if: matrix.node-version == 'lts/*'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           flags: unittests
