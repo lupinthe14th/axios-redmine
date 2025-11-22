@@ -20,7 +20,7 @@ const redmine = new Redmine(hostname, config)
 const dumpProject = project => {
   console.log('Dumping project:')
   for (const item in project) {
-    console.log('  ' + item + ': ' + JSON.stringify(project[item]))
+    console.log(`  ${  item  }: ${  JSON.stringify(project[item])}`)
   }
 }
 
@@ -34,7 +34,7 @@ const redmineProject = async () => {
         dumpProject(response.data.projects[i])
       }
 
-      console.log('total_count: ' + response.data.total_count)
+      console.log(`total_count: ${  response.data.total_count}`)
     })
 
   await redmine

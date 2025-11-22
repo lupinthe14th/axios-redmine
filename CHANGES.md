@@ -10,8 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - Updated axios from ^0.30.0 to ^1.7.0 to address multiple security vulnerabilities (CVE-2023-45857, CVE-2024-39338)
 - Removed codecov package dependency (functionality handled by CI workflow)
-- Updated devDependencies to latest compatible versions to address security advisories
-  - eslint: ^7.32.0 → ^8.57.0 (latest v8, v9 requires config migration)
+- Updated devDependencies to latest versions to address security advisories
+  - eslint: ^7.32.0 → ^9.17.0 (migrated to flat config format)
   - mocha: ^9.0.3 → ^10.8.2
   - typescript: ^4.3.5 → ^5.7.2
   - And other dependency updates for security patches
@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved CI workflow with explicit permissions and better step naming
 - Changed Codecov to non-blocking (fail_ci_if_error: false) and only run on LTS version
 - Removed hardcoded API keys from example files and README for better security
+- Migrated ESLint configuration from legacy .eslintrc.js to modern flat config format (eslint.config.js)
 - Enhanced ESLint rules with stricter code quality checks (with Mocha-compatible overrides for test files)
 - Improved SECURITY.md with GitHub Security Advisories, scope clarification, and no bounty program notice
 

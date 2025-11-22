@@ -20,7 +20,7 @@ const redmine = new Redmine(hostname, config)
 const dumpUser = function (user) {
   console.log('Dumping user:')
   for (const item in user) {
-    console.log('  ' + item + ': ' + JSON.stringify(user[item]))
+    console.log(`  ${  item  }: ${  JSON.stringify(user[item])}`)
   }
 }
 

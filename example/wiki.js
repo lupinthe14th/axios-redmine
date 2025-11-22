@@ -19,7 +19,7 @@ const redmine = new Redmine(hostname, config)
 // -----------------------------------------------------------------------------
 const dumpObj = function (obj) {
   for (const item in obj) {
-    console.log('  ' + item + ': ' + JSON.stringify(obj[item]))
+    console.log(`  ${  item  }: ${  JSON.stringify(obj[item])}`)
   }
 }
 

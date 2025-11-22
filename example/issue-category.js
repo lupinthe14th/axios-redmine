@@ -22,7 +22,7 @@ const redmine = new Redmine(hostname, config)
 const isseCategory = async () => {
   const dumpObj = obj => {
     for (const item in obj) {
-      console.log('  ' + item + ': ' + JSON.stringify(obj[item]))
+      console.log(`  ${  item  }: ${  JSON.stringify(obj[item])}`)
     }
   }
 
@@ -30,7 +30,7 @@ const isseCategory = async () => {
     for (const i in response.data.projects) {
       dumpObj(response.data.projects[i])
     }
-    console.log('total_count: ' + response.data.total_count)
+    console.log(`total_count: ${  response.data.total_count}`)
   })
   const issueCategory = {
     issue_category: {
