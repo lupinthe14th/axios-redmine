@@ -8,12 +8,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- Updated configuration files:
+  - Fixed typo in .editorconfig comment ("dirrerent" → "different")
+  - Added Markdown-specific rule to .editorconfig (preserve trailing whitespace)
+  - Updated .npmignore to reference eslint.config.js instead of .eslintrc.js
+  - Removed obsolete .travis.yml reference from .npmignore
+  - Added editor directories (.vscode, .idea) to .npmignore and .gitignore
+  - Enhanced .gitignore with Docker Compose and additional environment file patterns
+
+## [0.1.54] - 2025-11-22
+
+### Changed
 - Updated publish workflow (.github/workflows/publish.yml):
   - Updated checkout action from v3 to v4
   - Updated setup-node action from v3 to v4
   - Added explicit check for merged PRs only
   - Improved step naming and added explicit shell specifications
   - Added --frozen-lockfile flag to yarn install
+  - Added --non-interactive flag to yarn publish
+  - Added cache: yarn to setup-node for faster builds
   - Pinned action versions instead of using @master/@latest (security best practice):
     - phips28/gh-action-bump-version@v11.0.3 (was @master)
     - marvinpinto/action-automatic-releases@v1.2.1 (was @latest)
@@ -22,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Removed unnecessary `${{ }}` from if conditions in ci.yml
   - Changed `branches: - '!master'` to `branches-ignore:` in reviewdog.yml
   - Changed `secrets.github_token` to `secrets.GITHUB_TOKEN` (uppercase) in reviewdog.yml
+  - Removed trailing blank lines from workflow files
 
 ## [0.1.53] - 2025-11-22
 
@@ -92,7 +106,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initialize node-redmine
 
-[Unreleased]: https://github.com/lupinthe14th/axios-redmine/compare/v0.1.53...HEAD
+[Unreleased]: https://github.com/lupinthe14th/axios-redmine/compare/v0.1.54...HEAD
+[0.1.54]: https://github.com/lupinthe14th/axios-redmine/compare/v0.1.53...v0.1.54
 [0.1.53]: https://github.com/lupinthe14th/axios-redmine/compare/v0.1.49...v0.1.53
 [0.1.49]: https://github.com/lupinthe14th/axios-redmine/releases/tag/v0.1.49
 [0.1.0]: https://github.com/lupinthe14th/axios-redmine/releases/tag/v0.1.0
