@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added CONTRIBUTING.md with comprehensive contribution guidelines
+- Added additional CI quality checks:
+  - ESLint check on LTS Node.js version
+  - npm security audit (moderate level, non-blocking)
+- Added more badges to README:
+  - npm version badge
+  - Node.js version requirement badge
+  - License badge
+- Added "Features" section to README highlighting key capabilities
+- Added "Requirements" section to README documenting Node.js >= 20.0.0
+
+### Changed
+- Improved README.md structure and formatting
+  - Better organized sections
+  - Added emoji icons for visual clarity
+  - Clearer feature highlights
+  - More professional presentation
+
+## [0.1.53] - 2025-11-22
+
 ### Security
 - Updated axios from ^0.30.0 to ^1.7.0 to address multiple security vulnerabilities (CVE-2023-45857, CVE-2024-39338)
 - Removed codecov package dependency (functionality handled by CI workflow)
@@ -54,6 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initialize node-redmine
 
-[Unreleased]: https://github.com/lupinthe14th/axios-redmine/compare/v0.1.49...HEAD
+[Unreleased]: https://github.com/lupinthe14th/axios-redmine/compare/v0.1.53...HEAD
+[0.1.53]: https://github.com/lupinthe14th/axios-redmine/compare/v0.1.49...v0.1.53
 [0.1.49]: https://github.com/lupinthe14th/axios-redmine/releases/tag/v0.1.49
 [0.1.0]: https://github.com/lupinthe14th/axios-redmine/releases/tag/v0.1.0
