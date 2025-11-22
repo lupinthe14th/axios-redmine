@@ -10,7 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Security
 - Updated axios from ^0.30.0 to ^1.7.0 to address multiple security vulnerabilities (CVE-2023-45857, CVE-2024-39338)
 - Removed codecov package dependency (functionality handled by CI workflow)
-- Updated all devDependencies to latest stable versions to address security advisories
+- Updated devDependencies to latest compatible versions to address security advisories
+  - eslint: ^7.32.0 → ^8.57.0 (latest v8, v9 requires config migration)
+  - mocha: ^9.0.3 → ^10.8.2
+  - typescript: ^4.3.5 → ^5.7.2
+  - And other dependency updates for security patches
 
 ### Added
 - Added TypeScript type definitions (index.d.ts) for better TypeScript support

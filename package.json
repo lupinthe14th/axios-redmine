@@ -29,13 +29,13 @@
     "axios": "^1.7.0"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^8.0.0",
-    "@typescript-eslint/typescript-estree": "^8.0.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/typescript-estree": "^7.18.0",
     "axios-mock-adapter": "^2.0.0",
     "debug": "^4.3.7",
-    "eslint": "^9.0.0",
+    "eslint": "^8.57.0",
     "grunt": "^1.6.1",
-    "grunt-eslint": "^25.0.0",
+    "grunt-eslint": "^24.3.0",
     "grunt-mocha-cli": "^7.0.1",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-mocha-test": "^0.13.3",
