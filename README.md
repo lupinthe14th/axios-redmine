@@ -4,7 +4,6 @@ axios-redmine
 [![npm package](https://nodei.co/npm/axios-redmine.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/axios-redmine/)
 
 [![Build Status](https://github.com/lupinthe14th/axios-redmine/actions/workflows/ci.yml/badge.svg)](https://github.com/lupinthe14th/axios-redmine/actions/workflows/ci.yml)
-[![Greenkeeper badge](https://badges.greenkeeper.io/lupinthe14th/axios-redmine.svg)](https://greenkeeper.io/)
 [![codecov](https://codecov.io/gh/lupinthe14th/axios-redmine/branch/master/graph/badge.svg)](https://codecov.io/gh/lupinthe14th/axios-redmine)
 
 *[axios-redmine](https://github.com/lupinthe14th/axios-redmine) is a nodejs library that supports 100% of the [Redmine's REST API](http://www.redmine.org/projects/redmine/wiki/Rest_api)'s features.*
@@ -27,8 +26,7 @@ const Redmine = require('axios-redmine')
 // protocol required in Hostname, supports both HTTP and HTTPS
 const hostname = process.env.REDMINE_HOST || 'https://docker.for.mac.host.internal'
 const config = {
-  apiKey:
-    process.env.REDMINE_APIKEY || 'b7ce4d8d3865e79a75da8dba39bc801c12e36488',
+  apiKey: process.env.REDMINE_APIKEY,
   rejectUnauthorized: process.env.REJECT_UNAUTHORIZED
 }
 
