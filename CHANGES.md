@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added CONTRIBUTING.md with comprehensive contribution guidelines
+- Added pull request template (.github/pull_request_template.md)
 - Added additional CI quality checks:
   - ESLint check on LTS Node.js version
   - npm security audit (moderate level, non-blocking)
@@ -25,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added emoji icons for visual clarity
   - Clearer feature highlights
   - More professional presentation
+- Updated GitHub Actions workflows to latest versions:
+  - reviewdog.yml: Updated checkout action from v3 to v4
+  - codeql-analysis.yml: Updated checkout from v2 to v4, CodeQL actions from v1 to v3
+  - Improved workflow formatting and consistency
 
 ## [0.1.53] - 2025-11-22
 
