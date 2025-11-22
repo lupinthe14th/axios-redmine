@@ -10,9 +10,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added CONTRIBUTING.md with comprehensive contribution guidelines
 - Added pull request template (.github/pull_request_template.md)
-- Added Dependabot configuration for automated dependency updates
-  - Weekly npm dependency updates with grouped PRs
-  - Weekly GitHub Actions updates
 - Added additional CI quality checks:
   - ESLint check on LTS Node.js version
   - npm security audit (moderate level, non-blocking)
