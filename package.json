@@ -36,7 +36,7 @@
     "debug": "^4.3.7",
     "eslint": "^9.17.0",
     "grunt": "^1.6.1",
-    "grunt-eslint": "^26.0.0",
+    "grunt-eslint": "^25.0.0",
     "grunt-mocha-cli": "^7.0.0",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-mocha-test": "^0.13.3",
