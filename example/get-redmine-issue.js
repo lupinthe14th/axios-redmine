@@ -22,7 +22,7 @@ const redmine = new Redmine(hostname, config)
 const dumpIssue = function (issue) {
   console.log('Dumping issue:')
   for (const item in issue) {
-    console.log('  ' + item + ': ' + JSON.stringify(issue[item]))
+    console.log(`  ${  item  }: ${  JSON.stringify(issue[item])}`)
   }
 }
 
@@ -32,7 +32,7 @@ redmine
     for (const i in response.data.issues) {
       dumpIssue(response.data.issues[i])
     }
-    console.log('total_count: ' + response.data.total_count)
+    console.log(`total_count: ${  response.data.total_count}`)
   })
   .catch(err => {
     console.log(err)
@@ -52,7 +52,7 @@ redmine
 redmine
   .delete_issue(1)
   .then(response => {
-    console.log('Delete issue #1: ' + JSON.stringify(response.data))
+    console.log(`Delete issue #1: ${  JSON.stringify(response.data)}`)
   })
   .catch(err => {
     console.log(err)

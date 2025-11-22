@@ -1,5 +1,5 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-new */
+
+
 /* eslint-env mocha */
 /*
  * redmine.test.js - test request for redmine

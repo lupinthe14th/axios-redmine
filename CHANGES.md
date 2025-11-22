@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+- Updated axios from ^0.30.0 to ^1.7.0 to address multiple security vulnerabilities (CVE-2023-45857, CVE-2024-39338)
+- Removed codecov package dependency (functionality handled by CI workflow)
+- Updated devDependencies to latest versions to address security advisories
+  - eslint: ^7.32.0 → ^9.17.0 (migrated to flat config format)
+  - mocha: ^9.0.3 → ^10.8.2
+  - typescript: ^4.3.5 → ^5.7.2
+  - And other dependency updates for security patches
+
 ### Added
 - Added TypeScript type definitions (index.d.ts) for better TypeScript support
   - Comprehensive definitions for all 68 API methods
@@ -15,11 +24,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added npm scripts: `lint`, `lint:fix`, `coverage`, `serve` for better development workflow
 
 ### Changed
-- Updated Node.js version support: now supports 18.x, 20.x, 22.x, and LTS (removed EOL versions 12.x, 14.x, and 16.x)
+- **BREAKING**: Dropped Node.js 18.x support (EOL April 2025). Minimum version is now Node.js 20.0.0
+- Updated Node.js version support: now supports 20.x, 22.x, and LTS (removed EOL versions 12.x, 14.x, 16.x, and 18.x)
+- Added engines field to package.json to enforce minimum Node.js version
 - Updated GitHub Actions to latest versions (checkout@v4, setup-node@v4, codecov-action@v4)
 - Improved CI workflow with explicit permissions and better step naming
 - Changed Codecov to non-blocking (fail_ci_if_error: false) and only run on LTS version
 - Removed hardcoded API keys from example files and README for better security
+- Migrated ESLint configuration from legacy .eslintrc.js to modern flat config format (eslint.config.js)
 - Enhanced ESLint rules with stricter code quality checks (with Mocha-compatible overrides for test files)
 - Improved SECURITY.md with GitHub Security Advisories, scope clarification, and no bounty program notice
 
