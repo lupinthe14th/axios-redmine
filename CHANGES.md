@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added explicit check for merged PRs only
   - Improved step naming and added explicit shell specifications
   - Added --frozen-lockfile flag to yarn install
+- Fixed actionlint and yamllint warnings:
+  - Removed unnecessary `${{ }}` from if conditions in ci.yml
+  - Changed `branches: - '!master'` to `branches-ignore:` in reviewdog.yml
+  - Changed `secrets.github_token` to `secrets.GITHUB_TOKEN` (uppercase) in reviewdog.yml
 
 ## [0.1.53] - 2025-11-22
 
