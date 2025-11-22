@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Added TypeScript type definitions (index.d.ts) for better TypeScript support
+- Added npm scripts: `lint`, `lint:fix`, `coverage`, `serve` for better development workflow
+
 ### Changed
 - Updated Node.js version support: now supports 16.x, 18.x, 20.x, and LTS (removed EOL versions 12.x and 14.x)
 - Removed hardcoded API keys from example files and README for better security
@@ -16,9 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed constructor error handling to properly throw errors instead of returning them
 - Fixed test suite to properly validate error throwing behavior
-
-### Added
-- Added npm scripts: `lint`, `lint:fix`, `coverage`, `serve` for better development workflow
 
 ### Removed
 - Removed Greenkeeper badge from README (project now uses Renovate)

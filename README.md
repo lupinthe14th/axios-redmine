@@ -55,6 +55,28 @@ redmine
   })
 ```
 
+## TypeScript Support
+
+axios-redmine includes TypeScript type definitions for enhanced developer experience with autocomplete and type checking:
+
+```typescript
+import Redmine, { RedmineConfig } from 'axios-redmine';
+
+const config: RedmineConfig = {
+  apiKey: process.env.REDMINE_APIKEY
+};
+
+const redmine = new Redmine('https://redmine.example.org', config);
+
+// Full IntelliSense and type checking
+async function getIssues() {
+  const response = await redmine.issues({ limit: 10 });
+  console.log(response.data.issues);
+}
+```
+
+See [example/typescript-example.ts](example/typescript-example.ts) for more examples.
+
 ## Supported features for Redmine REST API
 
 | Resource            | Status    | Availability | Supported |
