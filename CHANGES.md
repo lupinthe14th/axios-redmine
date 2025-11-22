@@ -24,7 +24,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added npm scripts: `lint`, `lint:fix`, `coverage`, `serve` for better development workflow
 
 ### Changed
-- Updated Node.js version support: now supports 18.x, 20.x, 22.x, and LTS (removed EOL versions 12.x, 14.x, and 16.x)
+- **BREAKING**: Dropped Node.js 18.x support (EOL April 2025). Minimum version is now Node.js 20.0.0
+- Updated Node.js version support: now supports 20.x, 22.x, and LTS (removed EOL versions 12.x, 14.x, 16.x, and 18.x)
+- Added engines field to package.json to enforce minimum Node.js version
 - Updated GitHub Actions to latest versions (checkout@v4, setup-node@v4, codecov-action@v4)
 - Improved CI workflow with explicit permissions and better step naming
 - Changed Codecov to non-blocking (fail_ci_if_error: false) and only run on LTS version
