@@ -35,6 +35,17 @@ jobs:
         run: yarn install --frozen-lockfile
         shell: bash
 
+      - name: Run linter
+        if: ${{ matrix.node-version == 'lts/*' }}
+        run: yarn lint
+        shell: bash
+
+      - name: Security audit
+        if: ${{ matrix.node-version == 'lts/*' }}
+        run: yarn audit --level=moderate
+        continue-on-error: true
+        shell: bash
+
       - name: Run tests
         run: yarn test
         shell: bash
