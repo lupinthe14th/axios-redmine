@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+- **BREAKING**: Removed Grunt and migrated to native npm scripts
+  - Eliminated 26 security vulnerabilities (2 Critical, 12 High, 9 Moderate, 3 Low)
+  - Migrated from grunt-based testing to native mocha
+  - Replaced istanbul with c8 for modern code coverage
+  - Removed vulnerable packages: grunt, grunt-eslint, grunt-mocha-cli, grunt-mocha-istanbul, grunt-mocha-test, istanbul, load-grunt-configs, load-grunt-tasks, time-grunt
+  - Added yarn resolutions for braces (>=3.0.3) and brace-expansion (>=1.1.12) to fix remaining transitive vulnerabilities
+  - All security vulnerabilities now resolved (0 vulnerabilities)
+
+### Changed
+- Simplified test infrastructure by removing Grunt dependency
+  - Updated test script to use mocha directly with equivalent options
+  - Updated coverage script to use c8 with lcov and text reporters
+  - Removed Gruntfile.js and grunt/ configuration directory
+  - Maintained same test coverage (82.08%) and all tests passing
+
+### Removed
+- Grunt and all grunt-related packages (breaking change for build/test scripts)
+- Gruntfile.js and grunt/ configuration directory
+
 ## [0.1.54] - 2025-11-22
 
 ### Changed
