@@ -8,6 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- **BREAKING**: Updated publish workflow to manual tag-based releases:
+  - Removed automatic version bump (conflicted with branch protection rules)
+  - Changed trigger from PR merge to tag push (on: push: tags: v*)
+  - Simplified workflow: checkout → test → publish → create release
+  - Releases now require manual version bump and tag creation
+  - Added id-token: write permission for npm provenance
+  - Added test step before publishing for safety
 - Updated configuration files:
   - Fixed typo in .editorconfig comment ("dirrerent" → "different")
   - Added Markdown-specific rule to .editorconfig (preserve trailing whitespace)
