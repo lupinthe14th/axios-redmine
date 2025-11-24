@@ -47,7 +47,7 @@ jobs:
 
       - name: Publish to npm
         if: steps.release.outputs.release_created
-        run: yarn publish --non-interactive --provenance
+        run: npm publish --provenance --access public
         shell: bash
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
