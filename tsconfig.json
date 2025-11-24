@@ -1,10 +1,29 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020"],
+    "module": "commonjs",
+    "moduleResolution": "node",
     "allowJs": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
     "plugins": [
       {
         "name": "typescript-eslint-language-service"
       }
     ]
-  }
+  },
+  "include": [
+    "index.d.ts",
+    "lib/**/*.js",
+    "test/**/*.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "coverage"
+  ]
 }

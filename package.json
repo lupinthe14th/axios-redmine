@@ -14,7 +14,10 @@
     "lint": "eslint lib/**/*.js test/**/*.js example/**/*.js",
     "lint:fix": "eslint --fix lib/**/*.js test/**/*.js example/**/*.js",
     "coverage": "c8 --reporter=lcov --reporter=text mocha test/**/*.js --timeout 6000",
-    "serve": "npm run lint && npm run test && npm run coverage"
+    "serve": "npm run lint && npm run test && npm run coverage",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf coverage .nyc_output",
+    "prepublishOnly": "npm run lint && npm run test"
   },
   "keywords": [
     "Redmine",

@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Enhanced npm scripts for better developer experience:
+  - Added `type-check` script to validate TypeScript type definitions
+  - Added `clean` script to remove generated files (coverage, .nyc_output)
+  - Added `prepublishOnly` script to ensure lint and tests pass before publishing
+- Enhanced tsconfig.json for proper type checking:
+  - Added ES2020 target and lib for modern JavaScript features
+  - Added strict type checking options
+  - Configured to include lib/, test/, and type definitions
+
 ### Fixed
 - Fixed CI workflow to properly generate coverage reports before uploading to Codecov
   - Split test execution: run `yarn test` for Node 20.x and 22.x, `yarn coverage` for LTS
