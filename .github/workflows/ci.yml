@@ -47,7 +47,13 @@ jobs:
         shell: bash
 
       - name: Run tests
+        if: matrix.node-version != 'lts/*'
         run: yarn test
+        shell: bash
+
+      - name: Run tests with coverage
+        if: matrix.node-version == 'lts/*'
+        run: yarn coverage
         shell: bash
 
       - name: Upload coverage to Codecov
@@ -55,6 +61,7 @@ jobs:
         if: matrix.node-version == 'lts/*'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: false

@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fixed CI workflow to properly generate coverage reports before uploading to Codecov
+  - Split test execution: run `yarn test` for Node 20.x and 22.x, `yarn coverage` for LTS
+  - Added explicit coverage file path (`./coverage/lcov.info`) to Codecov action
+  - Previously, coverage upload was attempting to run without generating coverage first
+
 ### Security
 - **BREAKING**: Removed Grunt and migrated to native npm scripts
   - Eliminated 26 security vulnerabilities (2 Critical, 12 High, 9 Moderate, 3 Low)
