@@ -7,24 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-- **BREAKING**: Migrated to release-please for automated releases:
-  - Uses Conventional Commits to determine version bumps
-  - Automatically creates/updates Release PRs with version and changelog updates
-  - Publishes to npm when Release PR is merged
-  - Works seamlessly with branch protection rules (creates PRs instead of direct pushes)
-  - Added id-token: write permission for npm provenance
-  - Replaced manual tag-based workflow with automated release-please workflow
-  - Pinned googleapis/release-please-action to v4.4.0 for security
-  - Removed unnecessary ${{ }} wrapper in if conditions
-- Updated configuration files:
-  - Fixed typo in .editorconfig comment ("dirrerent" → "different")
-  - Added Markdown-specific rule to .editorconfig (preserve trailing whitespace)
-  - Updated .npmignore to reference eslint.config.js instead of .eslintrc.js
-  - Removed obsolete .travis.yml reference from .npmignore
-  - Added editor directories (.vscode, .idea) to .npmignore and .gitignore
-  - Enhanced .gitignore with Docker Compose and additional environment file patterns
-
 ## [0.1.54] - 2025-11-22
 
 ### Changed
