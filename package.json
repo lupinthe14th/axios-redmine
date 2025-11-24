@@ -4,6 +4,13 @@
   "description": "axios-redmine is a nodejs library which supports 100% features of Redmine's REST API.",
   "main": "lib/redmine.js",
   "types": "index.d.ts",
+  "files": [
+    "lib/",
+    "index.d.ts",
+    "LICENSE",
+    "README.md",
+    "CHANGES.md"
+  ],
   "directories": {
     "doc": "doc",
     "example": "example",
@@ -17,12 +24,24 @@
     "serve": "npm run lint && npm run test && npm run coverage"
   },
   "keywords": [
-    "Redmine",
+    "redmine",
+    "redmine-api",
+    "rest-api",
+    "api-client",
     "nodejs",
     "axios",
-    "REST API"
+    "typescript",
+    "project-management",
+    "issue-tracking"
   ],
-  "repository": "https://github.com/lupinthe14th/axios-redmine.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lupinthe14th/axios-redmine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lupinthe14th/axios-redmine/issues"
+  },
+  "homepage": "https://github.com/lupinthe14th/axios-redmine#readme",
   "author": "hideosuzuki@ordinarius-fectum.net",
   "license": "GPL-3.0",
   "engines": {

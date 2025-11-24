@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Enhanced package.json metadata for better npm discoverability:
+  - Added "files" field to explicitly specify published files (lib/, index.d.ts, LICENSE, README.md, CHANGES.md)
+  - Expanded keywords: added "redmine-api", "rest-api", "api-client", "typescript", "project-management", "issue-tracking"
+  - Converted repository to object format with type and url
+  - Added "bugs" field with issues URL
+  - Added "homepage" field linking to README
+
 ### Fixed
 - Fixed CI workflow to properly generate coverage reports before uploading to Codecov
   - Split test execution: run `yarn test` for Node 20.x and 22.x, `yarn coverage` for LTS
