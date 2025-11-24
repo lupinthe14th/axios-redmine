@@ -4,10 +4,12 @@ test
 node_modules
 .env
 .editorconfig
-.eslintrc.js
+eslint.config.js
 grunt
 yarn-error.log
 compose.yaml
 coverage
 .github
-.travis.yml
+*.log
+.vscode
+.idea
