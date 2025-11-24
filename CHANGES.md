@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Works seamlessly with branch protection rules (creates PRs instead of direct pushes)
   - Added id-token: write permission for npm provenance
   - Replaced manual tag-based workflow with automated release-please workflow
+  - Pinned googleapis/release-please-action to v4.4.0 for security
+  - Removed unnecessary ${{ }} wrapper in if conditions
 - Updated configuration files:
   - Fixed typo in .editorconfig comment ("dirrerent" → "different")
   - Added Markdown-specific rule to .editorconfig (preserve trailing whitespace)
