@@ -19,7 +19,7 @@ const redmine = new Redmine(hostname, config)
 
 const dumpTimeEntry = fields => {
   for (const item in fields) {
-    console.log('  ' + item + ': ' + JSON.stringify(fields[item]))
+    console.log(`  ${  item  }: ${  JSON.stringify(fields[item])}`)
   }
 }
 

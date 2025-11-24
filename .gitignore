@@ -71,3 +71,19 @@ typings/
 
 # Serverless directories
 .serverless
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Docker compose files
+compose.yaml
+docker-compose.override.yml
+
+# Environment files
+.env.local
+.env.test

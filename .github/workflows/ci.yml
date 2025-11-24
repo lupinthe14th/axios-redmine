@@ -11,28 +11,51 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
 
     strategy:
       fail-fast: false
       matrix:
-        node-version: [16.x, 18.x, 20.x, lts/*]
+        node-version: [20.x, 22.x, lts/*]
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: yarn
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
-      - uses: codecov/codecov-action@v3
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        shell: bash
+
+      - name: Run linter
+        if: matrix.node-version == 'lts/*'
+        run: yarn lint
+        shell: bash
+
+      - name: Security audit
+        if: matrix.node-version == 'lts/*'
+        run: yarn audit --level=moderate
+        continue-on-error: true
+        shell: bash
+
+      - name: Run tests
+        run: yarn test
+        shell: bash
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        if: matrix.node-version == 'lts/*'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          env_vars: ${{ matrix.node-version }}
           flags: unittests
           name: codecov-umbrella
-          fail_ci_if_error: true
+          fail_ci_if_error: false
           verbose: true

@@ -1,14 +1,27 @@
-axios-redmine
-============
+# axios-redmine
 
 [![npm package](https://nodei.co/npm/axios-redmine.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/axios-redmine/)
 
 [![Build Status](https://github.com/lupinthe14th/axios-redmine/actions/workflows/ci.yml/badge.svg)](https://github.com/lupinthe14th/axios-redmine/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/lupinthe14th/axios-redmine/branch/master/graph/badge.svg)](https://codecov.io/gh/lupinthe14th/axios-redmine)
+[![npm version](https://badge.fury.io/js/axios-redmine.svg)](https://www.npmjs.com/package/axios-redmine)
+[![Node.js Version](https://img.shields.io/node/v/axios-redmine.svg)](https://nodejs.org/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-*[axios-redmine](https://github.com/lupinthe14th/axios-redmine) is a nodejs library that supports 100% of the [Redmine's REST API](http://www.redmine.org/projects/redmine/wiki/Rest_api)'s features.*
+A comprehensive Node.js library that supports **100% of Redmine's REST API** features, built with [axios](https://github.com/axios/axios).
 
-axios-redmine is a node's library that supports 100% features of Redmine's REST API.
+## Features
+
+✨ **Complete API Coverage** - Supports all Redmine REST API endpoints
+🔒 **TypeScript Support** - Full type definitions with IntelliSense
+⚡ **Promise-based** - Modern async/await syntax
+🛡️ **Secure** - Regular security updates and dependency maintenance
+📦 **Lightweight** - Minimal dependencies
+
+## Requirements
+
+- **Node.js** >= 20.0.0
+- **Redmine** >= 1.0 (depends on features used)
 ## Installation
 
 To install axios-redmine, simply:
@@ -54,6 +67,28 @@ redmine
     console.log(err)
   })
 ```
+
+## TypeScript Support
+
+axios-redmine includes TypeScript type definitions for enhanced developer experience with autocomplete and type checking:
+
+```typescript
+import Redmine, { RedmineConfig } from 'axios-redmine';
+
+const config: RedmineConfig = {
+  apiKey: process.env.REDMINE_APIKEY
+};
+
+const redmine = new Redmine('https://redmine.example.org', config);
+
+// Full IntelliSense and type checking
+async function getIssues() {
+  const response = await redmine.issues({ limit: 10 });
+  console.log(response.data.issues);
+}
+```
+
+See [example/typescript-example.ts](example/typescript-example.ts) for more examples.
 
 ## Supported features for Redmine REST API
 

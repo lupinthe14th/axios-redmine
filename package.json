@@ -1,8 +1,9 @@
 {
   "name": "axios-redmine",
-  "version": "0.1.50",
+  "version": "0.1.52",
   "description": "axios-redmine is a nodejs library which supports 100% features of Redmine's REST API.",
   "main": "lib/redmine.js",
+  "types": "index.d.ts",
   "directories": {
     "doc": "doc",
     "example": "example",
@@ -24,27 +25,30 @@
   "repository": "https://github.com/lupinthe14th/axios-redmine.git",
   "author": "hideosuzuki@ordinarius-fectum.net",
   "license": "GPL-3.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
-    "axios": "^0.30.0",
-    "codecov": "^3.8.3"
+    "axios": "^1.7.0"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^4.29.2",
-    "@typescript-eslint/typescript-estree": "^4.29.2",
-    "axios-mock-adapter": "^1.20.0",
-    "debug": "^4.3.2",
-    "eslint": "^7.32.0",
-    "grunt": "^1.4.1",
-    "grunt-eslint": "^23.0.0",
+    "@eslint/js": "^9.17.0",
+    "@typescript-eslint/parser": "^8.18.2",
+    "@typescript-eslint/typescript-estree": "^8.18.2",
+    "axios-mock-adapter": "^2.0.0",
+    "debug": "^4.3.7",
+    "eslint": "^9.17.0",
+    "grunt": "^1.6.1",
+    "grunt-eslint": "^26.0.0",
     "grunt-mocha-cli": "^7.0.0",
     "grunt-mocha-istanbul": "^5.0.2",
     "grunt-mocha-test": "^0.13.3",
-    "istanbul": "^0.4.3",
+    "istanbul": "^0.4.5",
     "load-grunt-configs": "^1.0.0",
-    "load-grunt-tasks": "^5.0.0",
-    "mocha": "^9.0.3",
+    "load-grunt-tasks": "^5.1.0",
+    "mocha": "^10.8.2",
     "time-grunt": "^2.0.0",
-    "typescript": "^4.3.5",
-    "typescript-eslint-language-service": "^4.1.5"
+    "typescript": "^5.7.2",
+    "typescript-eslint-language-service": "^5.0.5"
   }
 }

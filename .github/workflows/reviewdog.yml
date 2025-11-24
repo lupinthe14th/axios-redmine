@@ -2,8 +2,8 @@
 name: reviewdog
 on:
   push:
-    branches:
-      - '!master'
+    branches-ignore:
+      - master
   pull_request:
     branches:
       - master
@@ -13,12 +13,12 @@ jobs:
     name: runner / misspell
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code.
-        uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v4
       - name: misspell
         uses: reviewdog/action-misspell@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           locale: "US"
           reporter: github-pr-review
 
@@ -26,24 +26,24 @@ jobs:
     name: runner / yamllint
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code.
-        uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v4
       - name: yamllint
         uses: reviewdog/action-yamllint@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
 
   Shellcheck:
     name: runner / shellcheck
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code.
-        uses: actions/checkout@v3
+      - name: Check out code
+        uses: actions/checkout@v4
       - name: shellcheck
         uses: reviewdog/action-shellcheck@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           path: "."
           pattern: "*.sh"
@@ -54,11 +54,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: actionlint
         uses: reviewdog/action-actionlint@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
 
   dotenv-linter:
@@ -66,9 +66,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Run dotenv-linter with code suggestions
         uses: dotenv-linter/action-dotenv-linter@v2
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-code-suggestions

@@ -20,7 +20,7 @@ const redmine = new Redmine(hostname, config)
 const dumpFields = fields => {
   console.log('Dumping Custom Fields:')
   for (const item in fields) {
-    console.log('  ' + item + ': ' + JSON.stringify(fields[item]))
+    console.log(`  ${  item  }: ${  JSON.stringify(fields[item])}`)
   }
 }
 
