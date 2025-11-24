@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.54] - 2025-11-22
+
 ### Changed
 - **BREAKING**: Migrated to release-please for automated releases:
   - Uses Conventional Commits to determine version bumps
