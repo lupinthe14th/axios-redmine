@@ -139,6 +139,40 @@ Please report security vulnerabilities privately. See [SECURITY.md](SECURITY.md)
 - Use descriptive test names
 - Test both success and error cases
 
+## Release Process
+
+Releases are created manually by maintainers:
+
+1. **Update version in package.json**:
+   ```bash
+   # Edit package.json and update version number
+   npm version patch  # or minor, or major
+   ```
+
+2. **Update CHANGES.md**:
+   - Move changes from `[Unreleased]` to a new version section
+   - Add release date
+   - Update version links at bottom
+
+3. **Commit changes**:
+   ```bash
+   git add package.json CHANGES.md
+   git commit -m "chore: Release v0.1.x"
+   ```
+
+4. **Create and push tag**:
+   ```bash
+   git tag v0.1.x
+   git push origin v0.1.x
+   ```
+
+5. **Automated workflow**:
+   - Runs tests
+   - Publishes to npm
+   - Creates GitHub release with auto-generated notes
+
+**Note**: Only maintainers with npm publish access can create releases.
+
 ## Questions?
 
 Feel free to open an issue for questions or clarifications.
