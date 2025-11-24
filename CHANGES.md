@@ -8,13 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- **BREAKING**: Updated publish workflow to manual tag-based releases:
-  - Removed automatic version bump (conflicted with branch protection rules)
-  - Changed trigger from PR merge to tag push (on: push: tags: v*)
-  - Simplified workflow: checkout → test → publish → create release
-  - Releases now require manual version bump and tag creation
+- **BREAKING**: Migrated to release-please for automated releases:
+  - Uses Conventional Commits to determine version bumps
+  - Automatically creates/updates Release PRs with version and changelog updates
+  - Publishes to npm when Release PR is merged
+  - Works seamlessly with branch protection rules (creates PRs instead of direct pushes)
   - Added id-token: write permission for npm provenance
-  - Added test step before publishing for safety
+  - Replaced manual tag-based workflow with automated release-please workflow
 - Updated configuration files:
   - Fixed typo in .editorconfig comment ("dirrerent" → "different")
   - Added Markdown-specific rule to .editorconfig (preserve trailing whitespace)

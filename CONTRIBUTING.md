@@ -141,37 +141,28 @@ Please report security vulnerabilities privately. See [SECURITY.md](SECURITY.md)
 
 ## Release Process
 
-Releases are created manually by maintainers:
+This project uses [release-please](https://github.com/googleapis/release-please) for automated releases based on [Conventional Commits](https://www.conventionalcommits.org/).
 
-1. **Update version in package.json**:
-   ```bash
-   # Edit package.json and update version number
-   npm version patch  # or minor, or major
-   ```
+### How It Works
 
-2. **Update CHANGES.md**:
-   - Move changes from `[Unreleased]` to a new version section
-   - Add release date
-   - Update version links at bottom
+1. **Make changes** following Conventional Commits format:
+   - `feat:` New features → minor version bump
+   - `fix:` Bug fixes → patch version bump
+   - `feat!:` or `BREAKING CHANGE:` → major version bump
+   - `docs:`, `test:`, `chore:`, etc. → no version bump
 
-3. **Commit changes**:
-   ```bash
-   git add package.json CHANGES.md
-   git commit -m "chore: Release v0.1.x"
-   ```
+2. **Merge to master**:
+   - release-please automatically creates/updates a "Release PR"
+   - The Release PR updates version in package.json and CHANGES.md
+   - Review the Release PR to see what will be released
 
-4. **Create and push tag**:
-   ```bash
-   git tag v0.1.x
-   git push origin v0.1.x
-   ```
+3. **Merge the Release PR**:
+   - When you merge the Release PR, the workflow automatically:
+     - Creates a GitHub release with tag
+     - Runs tests
+     - Publishes to npm with provenance
 
-5. **Automated workflow**:
-   - Runs tests
-   - Publishes to npm
-   - Creates GitHub release with auto-generated notes
-
-**Note**: Only maintainers with npm publish access can create releases.
+**Note**: Only maintainers with npm publish access can merge release PRs.
 
 ## Questions?
 
