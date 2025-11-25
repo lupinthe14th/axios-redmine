@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- Enhanced npm scripts for better developer experience:
+  - Added `type-check` script to validate TypeScript type definitions
+  - Added `clean` script to remove generated files (coverage, .nyc_output) using rimraf for cross-platform compatibility
+  - Added `prepublishOnly` script to ensure lint and tests pass before publishing
+- Enhanced tsconfig.json for proper type checking:
+  - Added ES2020 target and lib for modern JavaScript features
+  - Added strict type checking options
+  - Configured to include lib/, test/, and type definitions
 - Enhanced package.json metadata for better npm discoverability:
   - Added "files" field to explicitly specify published files (lib/, index.d.ts, LICENSE, README.md, CHANGES.md)
   - Expanded keywords: added "redmine-api", "rest-api", "api-client", "typescript", "project-management", "issue-tracking"
