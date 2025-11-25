@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Enhanced npm scripts for better developer experience:
   - Added `type-check` script to validate TypeScript type definitions
-  - Added `clean` script to remove generated files (coverage, .nyc_output)
+  - Added `clean` script to remove generated files (coverage, .nyc_output) using rimraf for cross-platform compatibility
   - Added `prepublishOnly` script to ensure lint and tests pass before publishing
 - Enhanced tsconfig.json for proper type checking:
   - Added ES2020 target and lib for modern JavaScript features

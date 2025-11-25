@@ -98,6 +98,18 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/retry/-/retry-0.4.3.tgz#c2b9d2e374ee62c586d3adbea87199b1d7a7a6ba"
   integrity sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==
 
+"@isaacs/balanced-match@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@isaacs/balanced-match/-/balanced-match-4.0.1.tgz#3081dadbc3460661b751e7591d7faea5df39dd29"
+  integrity sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ==
+
+"@isaacs/brace-expansion@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@isaacs/brace-expansion/-/brace-expansion-5.0.0.tgz#4b3dabab7d8e75a429414a96bd67bf4c1d13e0f3"
+  integrity sha512-ZT55BDLV0yv0RBm2czMiZ+SqCGO7AvmOM3G/w2xhVPH+te0aKgFjmBvGlL1dH+ql2tgGO3MVrbb3jCKyvpgnxA==
+  dependencies:
+    "@isaacs/balanced-match" "^4.0.1"
+
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@isaacs/cliui/-/cliui-8.0.2.tgz#b37667b7bc181c168782259bab42474fbf52b550"
@@ -802,6 +814,15 @@ glob@^10.4.1:
     package-json-from-dist "^1.0.0"
     path-scurry "^1.11.1"
 
+glob@^13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-13.0.0.tgz#9d9233a4a274fc28ef7adce5508b7ef6237a1be3"
+  integrity sha512-tvZgpqk6fz4BaNZ66ZsRaZnbHvP/jG3uKJvAZOwEVUL4RTA5nJeeLYfyN9/VA8NX/V3IBG+hkeuGpKjvELkVhA==
+  dependencies:
+    minimatch "^10.1.1"
+    minipass "^7.1.2"
+    path-scurry "^2.0.0"
+
 glob@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/glob/-/glob-8.1.0.tgz#d388f656593ef708ee3e34640fdfb99a9fd1c33e"
@@ -1030,6 +1051,11 @@ lru-cache@^10.2.0:
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.4.3.tgz#410fc8a17b70e598013df257c2446b7f3383f119"
   integrity sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==
 
+lru-cache@^11.0.0:
+  version "11.2.2"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-11.2.2.tgz#40fd37edffcfae4b2940379c0722dc6eeaa75f24"
+  integrity sha512-F9ODfyqML2coTIsQpSkRHnLSZMtkU8Q+mSfcaIyKwy58u+8k5nvAYeiNhsyMARvzNcXJ9QfWVrcPsC9e9rAxtg==
+
 make-dir@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-4.0.0.tgz#c3c2307a771277cd9638305f915c29ae741b614e"
@@ -1066,6 +1092,13 @@ mime-types@^2.1.12:
   integrity sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==
   dependencies:
     mime-db "1.52.0"
+
+minimatch@^10.1.1:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-10.1.1.tgz#e6e61b9b0c1dcab116b5a7d1458e8b6ae9e73a55"
+  integrity sha512-enIvLvRAFZYXJzkCYG5RKmPfrFArdLv+R+lbQ53BmIMLIry74bjKzX6iHAm8WYamJkhSSEabrWN5D97XnKObjQ==
+  dependencies:
+    "@isaacs/brace-expansion" "^5.0.0"
 
 minimatch@^3.1.2:
   version "3.1.2"
@@ -1167,7 +1200,7 @@ p-locate@^5.0.0:
   dependencies:
     p-limit "^3.0.2"
 
-package-json-from-dist@^1.0.0:
+package-json-from-dist@^1.0.0, package-json-from-dist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/package-json-from-dist/-/package-json-from-dist-1.0.1.tgz#4f1471a010827a86f94cfd9b0727e36d267de505"
   integrity sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==
@@ -1196,6 +1229,14 @@ path-scurry@^1.11.1:
   dependencies:
     lru-cache "^10.2.0"
     minipass "^5.0.0 || ^6.0.2 || ^7.0.0"
+
+path-scurry@^2.0.0:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/path-scurry/-/path-scurry-2.0.1.tgz#4b6572376cfd8b811fca9cd1f5c24b3cbac0fe10"
+  integrity sha512-oWyT4gICAu+kaA7QWk/jvCHWarMKNs6pXOGWKDTr7cw4IGcUbW+PeTfbaQiLGheFRpjo6O9J0PmyMfQPjH71oA==
+  dependencies:
+    lru-cache "^11.0.0"
+    minipass "^7.1.2"
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.3.1:
   version "2.3.1"
@@ -1250,6 +1291,14 @@ reusify@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
+
+rimraf@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-6.1.2.tgz#9a0f3cea2ab853e81291127422116ecf2a86ae89"
+  integrity sha512-cFCkPslJv7BAXJsYlK1dZsbP8/ZNLkCAQ0bi1hf5EKX2QHegmDFEFA6QhuYJlk7UDdc+02JjO80YSOrWPpw06g==
+  dependencies:
+    glob "^13.0.0"
+    package-json-from-dist "^1.0.1"
 
 run-parallel@^1.1.9:
   version "1.2.0"
